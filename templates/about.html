@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+{% endblock %}
+{% block content %}
+  <div class="main-about">
+    <div class="left-3">
+
+    </div>
+    
+    <div class="right-3">
+      <div class="grid-1">
+        <div class="right-divs n-1">
+          <h1>SUSHI ARTISTRY</h1>
+          <h1>REDEFINED</h1>
+          <p>Where culinary craftsmanship meets modern elegance. Indulge in the finest sushi, expertly curated to elevate your dining experience.</p>
+        </div>
+        <div class="right-divs n-2">
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="right-divs n-3">
+          <div class="container-1">
+            <img class="menu-imgs" src="{% static 'media/star.png' %}" alt="">
+            <img class="menu-imgs" src="{% static 'media/star.png' %}" alt="">
+            <img class="menu-imgs" src="{% static 'media/star.png' %}" alt="">
+            <img class="menu-imgs" src="{% static 'media/star.png' %}" alt="">
+          </div>
+        </div>
+        <div class="right-divs n-4"></div>
+        <div class="right-divs n-5"></div>
+      </div>
+      <div class="grid-3">
+        <div class="right-divs n-6"></div>
+        <div class="right-divs n-7"></div>
+      </div>
+      <div class="grid-4">
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

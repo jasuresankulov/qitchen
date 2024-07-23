@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/menu.css' %}" />
+{% endblock %}
+
+{% block title %}
+  Menu
+{% endblock %}
+
+{% block content %}
+  <div class="menu-main">
+    <div class="left-2"><span class="text">Menu</span></div>
+    <div class="right">
+      <div class="buttons">
+        <button id="scrollButton1" class="menu-button">Maki</button>
+        <button id="scrollButton2" class="menu-button">Uramaki</button>
+        <button id="scrollButton3" class="menu-button">Special Rolls</button>
+      </div>
+      <h1 align='center' style="color: snow;">Maki</h1>
+      <div id="section-maki" class="maki-section">    
+        <br>
+        <div class="spicy-maki">
+          <img class="menu-imgs" src="{% static 'media/makisushi1.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">SPICY TUNA MAKI</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+         <div class="mango-maki">
+          <img class="menu-imgs" src="{% static 'media/makisishi2.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">MANGO MAKI</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+         <div class="salmon-maki">
+          <img class="menu-imgs" src="{% static 'media/makisishi3.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">SALMON MAKI</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+         <div class="tuna-maki">
+          <img class="menu-imgs" src="{% static 'media/makisishi4.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">TUNA MAKI</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+
+
+      </div>
+      <h1 align='center' style="color: snow;">Uramaki</h1>
+      <div id="section-maki2" class="maki-section2">
+        <div class="spicy-maki">
+          <img class="menu-imgs" src="{% static 'media/uramaki1.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">Volcano Delight</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+         <div class="mango-maki">
+          <img class="menu-imgs" src="{% static 'media/uramaki2.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">Rainbow Fusion</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+         <div class="salmon-maki">
+          <img class="menu-imgs" src="{% static 'media/uramaki3.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">Dragon Elegance</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+         <div class="tuna-maki">
+          <img class="menu-imgs" src="{% static 'media/uramaki4.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">Sunset Serenity</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+         <div class="spicy-maki">
+          <img class="menu-imgs" src="{% static 'media/ursmaki5.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">Mystic Garden</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+         <div class="spicy-maki">
+          <img class="menu-imgs" src="{% static 'media/uramaki6.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">Ocean Breeze</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+         <div class="spicy-maki">
+          <img class="menu-imgs" src="{% static 'media/uramaki7.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">Tokyo Blossom</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+
+      </div>
+
+
+
+      <h1 align='center' style="color: snow;">Special Rools</h1>
+
+      <div id="section-maki3" class="maki-section3">
+        <div class="spicy-maki">
+          <img class="menu-imgs" src="{% static 'media/rools1.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">Sunrise Bliss</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+         <div class="mango-maki">
+          <img class="menu-imgs" src="{% static 'media/rools2.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">Mango Tango Fusion</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+         <div class="salmon-maki">
+          <img class="menu-imgs" src="{% static 'media/rools4.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">Truffle Indulgence</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+         <div class="tuna-maki">
+          <img class="menu-imgs" src="{% static 'media/rools44.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">Pacific Firecracker</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+         <div class="tuna-maki">
+          <img class="menu-imgs" src="{% static 'media/rools5.png' %}" alt="">
+          <div class="spicy-div">
+            <h2 style="color: snow;">Eternal Eel Enchantment</h2>
+            <p style="color: snow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, cum.</p>  
+          </div>
+         </div>
+         <br>
+         <br>
+
+
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
