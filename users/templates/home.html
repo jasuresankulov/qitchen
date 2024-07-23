@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="signin-signup">
+      <h2 align="center">Welcome to the <span class="big">QITCHEN</span>  Website!</h2>
+      {% if user.is_authenticated %}
+        <p>
+        <span class="hi"> Hi,{{ user.username }}!</span>   <a href="{% url 'signout' %}">Sign Out</a>
+        </p>
+        <br>
+        <br>
+        <a class="click-here"  href="homepage/">Click here to visit site!</a>
+      {% else %}
+        <p>
+          <a href="{% url 'signin' %}">Sign In</a> <span style="color: orange;">or</span>  <a href="{% url 'signup' %}">Sign Up</a>
+        </p>
+      {% endif %}
+    </div>
+  </body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: 0.5s;
+
+    }
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('static/media/welcomeImg.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-blend-mode: darken;
+      background-color: rgb(0, 0, 0, 0.5);
+      background-size: cover;
+    }
+    .signin-signup {
+      width: 500px;
+      height: 400px;
+      border-radius: 20px;
+      background-color: transparent;
+      backdrop-filter: blur(5px);
+      border: 1px solid gray;
+      box-shadow: 4px 4px 1px rgb(169, 169, 169, 0.5);
+      transform-style: preserve-3d;
+      animation: push 1s infinite linear alternate;
+    }
+    
+    @keyframes push {
+      0% {
+        width: 470px;
+        height: 370px;
+      }
+      100% {
+        width: 500px;
+        height: 400px;
+      }
+    }
+    h2 {
+      color: orange;
+      margin-top: 30%;
+    }
+    .big{
+        font-size: 35px;
+        color: red;
+    }
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-content: space-evenly;
+      margin-top: 10%;
+    }
+    a {
+      text-decoration: solid 1px;
+      font-size: larger;
+      color: red;
+      padding: 10px;
+      border: 1px solid gray;
+      border-radius: 10px;
+    }
+    a:hover{
+        background-color: gray;
+        color: tomato;
+        padding: 15px;
+    }
+    .hi{
+      font-size: 30px;
+      font-weight: bolder;
+      color: red;
+    }
+
+    .click-here{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: yellow;
+    }
+  </style>
+</html>
