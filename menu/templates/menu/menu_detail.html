@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/crud_detail.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="crud-main-2">
+    <div class="main-crud-3">
+      <h1 style="color: yellow;">{{ item.name }}</h1>
+      <p>Description: {{ item.description }}</p>
+      <p>Price: ${{ item.price }}</p>
+      <a href="{% url 'menu_update' item.pk %}">Edit</a>
+      <a style="color: red;" href="{% url 'menu_list' %}">Back to menu</a>
+    </div>
+  </div>
+{% endblock %}

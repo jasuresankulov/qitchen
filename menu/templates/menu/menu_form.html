@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/crud_menu_form.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="main-menu-detail">
+    <div class="left-5"></div>
+
+    <div class="right-5">
+                <h1 style="color: snow;">{% if form.instance.pk %}Edit{% else %}New{% endif %} Menu Item</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <br>
+                    <button class="btn-form" type="submit">Save</button>
+                    <a class="cancel" href="{% url 'menu_list' %}">Cancel</a>    
+                </form>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1>{% if form.instance.pk %}Edit{% else %}New{% endif %} Menu Item</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'menu_list' %}">Cancel</a>

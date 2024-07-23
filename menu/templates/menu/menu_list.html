@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/crud_menu.css' %}" />
+{% endblock %}
+
+
+{% block content %}
+    <div class="crud-main-1">
+        <div class="main-crud">
+            <h1 style="color: yellow;">Menu List</h1>
+            <a class="add-new" href="{% url 'menu_create' %}">Add new item</a>
+            <ul>
+              {% for item in items %}
+                <li>
+                  <a href="{% url 'menu_detail' item.pk %}">{{ item.name }}</a>
+                  (<a href="{% url 'menu_update' item.pk %}">edit</a>) (<a href="{% url 'menu_delete' item.pk %}">delete</a>)
+                </li>
+              {% endfor %}
+            </ul>
+          </div>        
+    </div>
+{% endblock %}
+

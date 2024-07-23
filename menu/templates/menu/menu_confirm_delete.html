@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/crud_delete.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="crud-main-2">
+    <div class="main-crud-2">
+      <h1>Delete Menu Item</h1>
+      <p class="ask">Are you sure you want to delete "{{ item.name }}"?</p>
+      <form method="post">
+        {% csrf_token %}
+        <button class="btn-delete" type="submit">Confirm</button>
+      </form>
+      <a class="del-cancel" href="{% url 'menu_list' %}">Cancel</a>
+    </div>
+  </div>
+{% endblock %}
