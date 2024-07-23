@@ -16,7 +16,7 @@
         <a class="click-here"  href="homepage/">Click here to visit site!</a>
       {% else %}
         <p>
-          <a href="{% url 'signin' %}">Sign In</a> <span style="color: orange;">or</span>  <a href="{% url 'signup' %}">Sign Up</a>
+          <a href="{% url 'account_login' %}">Sign In</a> <span style="color: orange;">or</span>  <a href="{% url 'account_signup' %}">Sign Up</a>
         </p>
       {% endif %}
     </div>
