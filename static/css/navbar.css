@@ -1,0 +1,91 @@
+.menu-container {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 10px;
+    color: snow;
+    width: 540px;
+    position: absolute;
+    top: 48px;
+    left: 48px;
+}
+
+button{
+    padding: 18px;
+    background-color: #222;
+    border-radius: 10px;
+    color: snow;
+    cursor: pointer;
+    border: none;
+}
+
+.main-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 5px;
+}
+
+a {
+    padding: 15px;
+    color: snow;
+    text-decoration: none;
+    font-size: larger;
+}
+
+.qitchen {
+    font-size: 50px;
+}
+
+.burger-menu {
+    width: 30px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #222;
+    padding: 15px;
+    border-radius: 5px;
+    height: 25px;
+
+}
+
+.bar {
+    height: 4px;
+    width: 100%;
+    background-color: snow;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.nav {
+    display: none;
+    position: absolute;
+    top: 85px;
+    left: 7%;
+    background-color: red;
+    width: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav ul li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.nav.open {
+    display: block;
+}

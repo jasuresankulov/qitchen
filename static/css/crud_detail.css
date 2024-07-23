@@ -1,0 +1,36 @@
+*{
+    transition: 0.5s;
+}
+.crud-main-2{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('../media/welcomeImg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+
+}
+.main-crud-3{
+    box-sizing: border-box;
+    color: snow;
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    width: 600px;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid gray;
+}
+.btn-delete{
+    width: 200px;
+}
+.del-cancel{
+    margin-bottom: 20px;
+}
