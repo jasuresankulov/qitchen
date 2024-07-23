@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import MenuItem
 from .forms import MenuItemForm
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def menu_list(request):
     items = MenuItem.objects.all()
     return render(request, 'menu/menu_list.html', {'items': items})
-
+@login_required
 def menu_detail(request, pk):
     item = get_object_or_404(MenuItem, pk=pk)
     return render(request, 'menu/menu_detail.html', {'item': item})

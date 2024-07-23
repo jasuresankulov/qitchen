@@ -17,7 +17,7 @@ urlpatterns = [
     path('homepage/', views.homepage),
     path('about/', views.about),
     path('menu_item/', views.menu_item ),
-    
+    path('accounts/', include('allauth.urls')),
     path('apis/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 

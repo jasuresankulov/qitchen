@@ -37,12 +37,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
     'users',
     'reservations',
     'menu',
     'rest_framework'
 ]
-
+SITE_ID = 1
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -71,7 +80,28 @@ TEMPLATES = [
         },
     },
 ]
-
+SOCIALACCOUNT_PROVIDERS = {
+    # site for creating google auth service https://console.cloud.google.com/
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '...',
+            'secret': '...',
+            'key': ''
+        }
+    },
+    # ============================================================================
+    # site for creating github auth service https://github.com/settings/developers
+    'github': {
+        'APP': {
+            'client_id': '...',
+            'secret': '...',
+            'key': ''
+        }
+    }
+}
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
 
