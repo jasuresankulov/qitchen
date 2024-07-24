@@ -1,10 +1,11 @@
 # myapp/views.py
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from .forms import SignUpForm
-
+from .models import Profile
 
 def home(request):
     return render(request, 'home.html')
@@ -49,12 +50,15 @@ def home(request):
 
 
 
+def profile_page(request, username=None):
 
+    user = get_object_or_404(User, username=username)
 
+    obj = get_object_or_404(Profile, user=user)
 
-
-
-
-
+    context = {
+        "obj": obj,
+    }
+    return render(request, "profile_page.html", context)
 
 

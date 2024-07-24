@@ -29,5 +29,6 @@
     <a href="/about">About</a>
     <a href="/reservations/make_reservation">BOOK A TABLE</a>
     <a href="/menu">Crud</a>
+    <a href="{% url "profile_page" request.user.username %}">{{request.user.username}}</a>
   </div>
 </div>

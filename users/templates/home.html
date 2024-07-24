@@ -9,7 +9,7 @@
       <h2 align="center">Welcome to the <span class="big">QITCHEN</span>  Website!</h2>
       {% if user.is_authenticated %}
         <p>
-        <span class="hi"> Hi,{{ user.username }}!</span>   <a href="{% url 'signout' %}">Sign Out</a>
+        <span class="hi"> Hi,{{ user.username }}!</span>   <a href="{% url 'account_logout' %}">Sign Out</a>
         </p>
         <br>
         <br>
