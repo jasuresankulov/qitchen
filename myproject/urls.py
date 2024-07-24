@@ -2,11 +2,11 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 from menu.api_views import MenuItemViewSet
-
 from rest_framework import routers
+
 router = routers.DefaultRouter()
 
-router.register(r'menuitem', MenuItemViewSet)
+router.register(r'menuitems', MenuItemViewSet)
 
 
 urlpatterns = [
@@ -18,6 +18,10 @@ urlpatterns = [
     path('about/', views.about),
     path('menu_item/', views.menu_item ),
     path('accounts/', include('allauth.urls')),
+    
+    path('api-menuItem', MenuItemViewSet.as_view({'get': 'list'}), name='menuItem'),
+    
+    
     path('apis/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 
