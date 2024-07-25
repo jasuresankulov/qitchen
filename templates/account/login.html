@@ -2,84 +2,37 @@
 {% load account %}
 
 <!DOCTYPE html>
+{% load static %}
 <html>
-<head>
+  <head>
     <title>Sign In</title>
-</head>
-<body>
-    <br>
-    <h2 align='center' style="color: snow;">Sign In</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sign In</button>
-    </form>
-</body>
-<style>
-
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  </head>
+  <body>
+    <div class="login-wrapper">
+      <div class="login-content">
+        <div class="sign-in">
+          <h1>Sign In</h1>
+          <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="border-btn">Sign In</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <style>
     * {
-        margin: 0 auto;
-        padding: 0;
-        transition: 0.5s;
-       }
-       html,
-       body{
-            background: url('/static/media/welcomeImg.jpg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-color: darkred;
-            background-blend-mode: darkred;
-            background-color: rgb(0, 0, 0, 0.5);
-            height: 100%;
-
-        }
-      form {
-        margin-top: 100px;
-        padding: 50px;
-        width: 550px;
-        height: 450px;
-        border-radius: 20px;
-        background-color: transparent;
-        backdrop-filter: blur(10px);
-        border: 1px solid gray;
-        box-shadow: 4px 4px 1px rgb(169, 169, 169, 0.5);
-        transform-style: preserve-3d;
-        animation: push 1s infinite linear alternate;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
-       @keyframes push {
-        0% {
-          width: 495px;
-          height: 390px;
-        }
-        100% {
-          width: 500px;
-          height: 400px;
-        }
-      } 
-  
-      p{
-         padding: 10px;
-        color: yellow;
-      }
-    input{
-        background-color: tomato;
-        padding: 7px;
-        border: none;
-        border-radius: 5px;
+      margin: 0 auto;
+      padding: 0;
+      transition: 0.5s;
     }
-    button{
-        margin-top: 10px;
-        padding: 10px;
-        width: 100%;
-        cursor: pointer;
-        border-radius: 10px;
-        border: none;
-    }
-</style>
+    html,
+    .login-wrapper {
+      background: url('/static/media/welcomeImg.jpg');
 
+    }
+
+  </style>
 </html>
