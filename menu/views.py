@@ -46,7 +46,7 @@ def menu_delete(request, pk):
 
 def make_reservation(request):
     # Your view logic here
-    return render(request, 'reservations/make_reservation.html')
+    return render(request, 'make_reservation.html')
 
 def make_reservation(request):
     if request.method == 'POST':
