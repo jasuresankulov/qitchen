@@ -1,5 +1,5 @@
 from django import forms
-from .models import MenuItem, Reservation
+from .models import MenuItem, Reservation, Order
 
 class MenuItemForm(forms.ModelForm):
     class Meta:
@@ -28,3 +28,7 @@ class ReservationForm(forms.ModelForm):
         }
 
 
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ('quantity',)

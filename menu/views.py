@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import MenuItem
-from .forms import MenuItemForm, ReservationForm
+from .models import MenuItem, Order
+from .forms import MenuItemForm, ReservationForm, OrderForm
 
 from django.contrib.auth.decorators import login_required
 
@@ -60,3 +60,27 @@ def make_reservation(request):
 
 def reservation_success(request):
     return render(request, 'reservations/reservation_success.html')
+
+
+@login_required
+def order_dish(request, menuitem_id):
+    menuItem = get_object_or_404(MenuItem, id=menuitem_id)
+    order = None
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            order = form.save(commit = False)
+            order.menuItem = menuItem
+            order.user = request.user
+            order.total_price = menuItem * order.quantity
+            order.save()
+            return redirect('menu_list')
+    else:
+        form = OrderForm()
+    return render(request, 'order_menuItem.html', {'menuItem': menuItem, 'form': form, 'order': order})   
+
+@login_required
+def user_order_list(request):
+    orders = Order.objects.filter(user=request.user)         
+    return render(request, 'orders.html', {'orders': orders})            
+        
