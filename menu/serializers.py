@@ -7,7 +7,7 @@ class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
         model = MenuItem
         fields = ['url','name', 'description', 'price', 'available']
 
-
+# ====================================================================================
 
 class ReservationSerializer(serializers.ModelSerializer):
     

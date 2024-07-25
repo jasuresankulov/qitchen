@@ -1,13 +1,14 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
-from menu.api_views import MenuItemViewSet, ReservationView
+from menu.api_views import MenuItemViewSet, ReservationView, ReservationViewSet
+
 # from reservations.api_views import ReservationView
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register(r'menuitems', MenuItemViewSet, basename='menuitem')
-# router.register(r'reservations', ReservationView, basename='reservation')
+router.register(r'reservations', ReservationViewSet, basename='reservation')
 
 
 urlpatterns = [
