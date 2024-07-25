@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import MenuItem
+from .models import MenuItem, Reservation
 # from .models import Book, BookImage
 
 class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
@@ -7,4 +7,13 @@ class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
         model = MenuItem
         fields = ['url','name', 'description', 'price', 'available']
 
+
+
+class ReservationSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Reservation
+        fields = ['url', 'name', 'email', 'phone_number', 'number_of_guests', 'reservation_date', 'reservation_date', 'reservation_time', 'special_requests']
+        
+        
 

@@ -1,7 +1,7 @@
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets, generics
-from .serializers import MenuItemSerializer
-from .models import MenuItem
+from .serializers import MenuItemSerializer, ReservationSerializer
+from .models import MenuItem, Reservation
 from rest_framework import status
 # For using a decorators
 from rest_framework.response import Response
@@ -16,6 +16,46 @@ class MenuItemViewSet(viewsets.ModelViewSet):
     serializer_class = MenuItemSerializer
     permission_classes = [permissions.AllowAny]
 
+
+class ReservationView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    
+    def get(self, request, pk=None):
+        context = {"request": request}
+        if pk:
+            reservation = Reservation.objects.get(id=pk)
+            reservation = ReservationSerializer(reservation, context=context)
+            return Response(reservation.data, status=status.HTTP_200_OK)
+        else:
+            all_reservations = Reservation.objects.all()
+            reservations = ReservationSerializer(all_reservations, many=True, context=context)
+            return Response(reservations.data, status=status.HTTP_200_OK)    
+   
+
+    def post(self, request):
+        context = {"request": request}
+        data = ReservationSerializer(data=request.data, context=context)
+        # book_names = request.data["book_names"]
+
+        # Save author to the post
+        if data.is_valid():
+            return Response(data.data, status=status.HTTP_201_CREATED)
+        
+    def put(self, request, pk):
+        context = {"request": request}
+        reservation = Reservation.objects.get(id=pk)
+        data = ReservationSerializer(instance=reservation, data=request.data, context=context)
+        if data.is_valid():
+            data.save()
+            return Response(data.data, status=status.HTTP_200_OK)
+        return Response(data.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    
+    def delete(self, request, pk):
+        reservation = Reservation.objects.get(id=pk)
+        reservation.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 # @api_view(['GET', 'MENUITEM'])
 # def menuItem_view(request):
