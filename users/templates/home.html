@@ -18,7 +18,7 @@
         {% if user.is_authenticated %}
           <p>
             <span class="hi">Hi, {{ user.username }}!</span> 
-            <a class="border-btn" href="{% url 'account_logout' %}">Sign Out</a>
+            <button class="border-btn open-btn">Sign Out</button>
           </p>
           <br>
           <br>
@@ -31,6 +31,38 @@
         {% endif %}
       </div>
     </div>
+    <div class="modal-bg">
+      <div class="modal">
+        <h1>Вы уверены что хотите выйти из аккаунта?</h1>
+
+        <div class="yes-no">
+          <a class="white-btn" href="{% url "account_logout" %}">Да</a>
+          <button class="border-btn close-btn">Нет</button>
+        </div>
+      </div>
+    </div>
   </div>
+  <script>
+    const modalBg = document.querySelector('.modal-bg');
+    const openBtn = document.querySelector('.open-btn');
+    const closeBtn = document.querySelector('.close-btn');
+    
+    function ModalFn() {
+        if (modalBg.classList.contains('active')) {
+            modalBg.classList.remove('active');
+            setTimeout(() => {
+                modalBg.style.display = 'none';
+            }, 300); // время совпадает с CSS transition
+        } else {
+            modalBg.style.display = 'flex';
+            setTimeout(() => {
+                modalBg.classList.add('active');
+            }, 10); // небольшой таймаут для применения display
+        }
+    }
+    
+    openBtn.addEventListener('click', ModalFn);
+    closeBtn.addEventListener('click', ModalFn);
+  </script>
 </body>
 </html>

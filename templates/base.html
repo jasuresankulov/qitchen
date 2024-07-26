@@ -15,6 +15,7 @@
     <script src="{% static 'js/menu.js' %}" defer></script>
 
     {% block css %}
+
     {% endblock %}
   </head>
   <body>
@@ -22,5 +23,50 @@
     {% block content %}
 
     {% endblock %}
+    <div class="menu-nav">
+      <ul>
+        <li>
+          <img src="{% static 'media/Grid.png' %}" alt="" />
+        </li>
+        <li>
+          <a href="#">Menu</a>
+        </li>
+        <li>
+          <a href="#">Reservation</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+        <li>
+          <a href="#">Blog</a>
+        </li>
+        <li>
+          <img src="{% static 'media/Grid.png' %}" alt="" />
+        </li>
+      </ul>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const burgerMenu = document.querySelector('#burgerMenu')
+        const menuNav = document.querySelector('.menu-nav')
+        function ModalFn() {
+          if (menuNav.classList.contains('active')) {
+            menuNav.classList.remove('active')
+            setTimeout(() => {
+              menuNav.style.display = 'none'
+            }, 300)
+          } else {
+            menuNav.style.display = 'flex'
+            setTimeout(() => {
+              menuNav.classList.add('active')
+            }, 10)
+          }
+        }
+        burgerMenu.addEventListener('click', ModalFn)
+      })
+    </script>
   </body>
 </html>
