@@ -28,7 +28,13 @@ class ReservationForm(forms.ModelForm):
         }
 
 
+# class OrderForm(forms.ModelForm):
+#     class Meta:
+#         model = Order
+#         fields = ('quantity',)
+
+
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ('quantity',)
+        fields = ['customer_name', 'product_name', 'quantity', 'price']

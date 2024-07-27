@@ -5,6 +5,15 @@ from .forms import MenuItemForm, ReservationForm, OrderForm
 from django.contrib.auth.decorators import login_required
 
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework import generics
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Order
+from .serializers import OrderSerializer
+from .forms import OrderForm
+
 @login_required
 def menu_list(request):
     items = MenuItem.objects.all()
@@ -62,25 +71,108 @@ def reservation_success(request):
     return render(request, 'reservations/reservation_success.html')
 
 
-@login_required
-def order_dish(request, menuitem_id):
-    menuItem = get_object_or_404(MenuItem, id=menuitem_id)
-    order = None
-    if request.method == 'POST':
+# ==============================================================================================
+
+
+class CreateOrderView(APIView):
+    def post(self, request, format=None):
+        serializer = OrderSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class OrderListCreate(generics.ListCreateAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+def order_list_view(request):
+    orders = Order.objects.all()
+    return render(request, 'menu/order_list.html', {'orders': orders})
+
+def order_detail_view(request, pk):
+    order = get_object_or_404(Order, pk=pk)
+    return render(request, 'menu/order_detail.html', {'order': order})
+
+def order_create_view(request):
+    if request.method == "POST":
         form = OrderForm(request.POST)
         if form.is_valid():
-            order = form.save(commit = False)
-            order.menuItem = menuItem
-            order.user = request.user
-            order.total_price = menuItem * order.quantity
-            order.save()
-            return redirect('menu_list')
+            form.save()
+            return redirect('order-list-view')
     else:
         form = OrderForm()
-    return render(request, 'order_menuItem.html', {'menuItem': menuItem, 'form': form, 'order': order})   
+    return render(request, 'menu/order_form.html', {'form': form})
 
-@login_required
-def user_order_list(request):
-    orders = Order.objects.filter(user=request.user)         
-    return render(request, 'orders.html', {'orders': orders})            
+# ==========================================================================================
+
+def profile_page_view(request):
+    if request.method == "POST":
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('profile-page-view')
+    else:
+        form = OrderForm()
+    
+    orders = Order.objects.all()
+    return render(request, 'users/profile_page.html', {'orders': orders, 'form': form})
+
+def order_edit_view(request, pk):
+    order = get_object_or_404(Order, pk=pk)
+    if request.method == "POST":
+        form = OrderForm(request.POST, instance=order)
+        if form.is_valid():
+            form.save()
+            return redirect('profile-page-view')
+    else:
+        form = OrderForm(instance=order)
+    return render(request, 'menu/order_form.html', {'form': form, 'edit': True})
+
+def order_delete_view(request, pk):
+    order = get_object_or_404(Order, pk=pk)
+    if request.method == "POST":
+        order.delete()
+        return redirect('order-list-create')
+    return render(request, 'menu/order_confirm_delete.html', {'order': order})
+
+
+# =============================================================================
+
+def profile_page_view(request):
+    if request.method == "POST":
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('profile-page-view')
+    else:
+        form = OrderForm()
+    
+    orders = Order.objects.all()
+    return render(request, 'users/profile_page.html', {'orders': orders, 'form': form})
+# @login_required
+# def order_dish(request, menuitem_id):
+#     menuItem = get_object_or_404(MenuItem, id=menuitem_id)
+#     order = None
+#     if request.method == 'POST':
+#         form = OrderForm(request.POST)
+#         if form.is_valid():
+#             order = form.save(commit = False)
+#             order.menuItem = menuItem
+#             order.user = request.user
+#             order.total_price = menuItem * order.quantity
+#             order.save()
+#             return redirect('menu_list')
+#     else:
+#         form = OrderForm()
+#     return render(request, 'order_menuItem.html', {'menuItem': menuItem, 'form': form, 'order': order})   
+
+# @login_required
+# def user_order_list(request):
+#     orders = Order.objects.filter(user=request.user)         
+#     return render(request, 'orders.html', {'orders': orders})            
         

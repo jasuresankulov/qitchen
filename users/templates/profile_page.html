@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="profile-wrapper">
-        <div class="profile">
-            <div class="profile-container">
-                <h1 class="username">{{obj.user.username}}</h1>
-                <b>Игры, которые загрузил пользователь</b>
-           </div>
-        </div> 
+      <div class="profile">
+        <div class="profile-container">
+          <h1 class="username">{{ obj.user.username }}</h1>
+        </div>
+
+        {% comment %} <h2>Order List</h2>
+        {% include 'menu/order_list.html' %} {% endcomment %}
+
+
+
+        <!-- orders/templates/orders/profile_page.html -->
+        <h2>Create Order</h2>
+        <form method="post" action="{% url 'order-create-view' %}">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Create</button>
+        </form>
+      </div>
     </div>
 
-    <a href="{% url 'user_order_list'  %}">My orders</a>
-    <a href="{% url 'order_menuItem' menuitem.id %}">Create order</a>
-
-</body>
+    {% comment %} <a href="{% url 'user_order_list' %}">My orders</a>
+    <a href="{% url 'order_menuItem' menuitem.id %}">Create order</a> {% endcomment %}
+  </body>
 </html>

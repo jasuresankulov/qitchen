@@ -1,0 +1,33 @@
+{% comment %} <!DOCTYPE html>
+<html>
+<head>
+    <title>Order List</title>
+</head>
+<body>
+    <h1>Order List</h1>
+    <ul>
+        {% for order in orders %}
+            <li>
+                <a href="{% url 'order-detail-view' order.id %}">
+                    {{ order.customer_name }} - {{ order.product_name }} - {{ order.quantity }} - {{ order.price }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'order-create-view' %}">Create New Order</a>
+</body>
+</html> {% endcomment %}
+
+
+
+<!-- orders/templates/orders/order_list.html -->
+{% for order in orders %}
+<li>
+    {{ order.customer_name }} - {{ order.product_name }} - {{ order.quantity }} - {{ order.price }}
+    <a href="{% url 'order-edit-view' order.pk %}">Edit</a>
+    <a href="{% url 'order-delete-view' order.pk %}">Delete</a>
+</li>
+{% empty %}
+<li>No orders available.</li>
+{% endfor %}
+

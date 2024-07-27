@@ -1,0 +1,20 @@
+<!-- orders/templates/orders/order_confirm_delete.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Delete</title>
+</head>
+<body>
+    <h1>Confirm Delete</h1>
+    <p>Are you sure you want to delete the following order?</p>
+    <p>Customer Name: {{ order.customer_name }}</p>
+    <p>Product Name: {{ order.product_name }}</p>
+    <p>Quantity: {{ order.quantity }}</p>
+    <p>Price: {{ order.price }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+    </form>
+    <a href="{% url 'order-list-create' %}">Cancel</a>
+</body>
+</html>
