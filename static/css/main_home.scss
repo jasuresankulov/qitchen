@@ -103,6 +103,9 @@ button {
   font-weight: 700;
   font-style: normal;
   color: #EFE7D2;
+  display: flex;
+  align-items: center ;
+  gap: 5px;
 }
 .home-wrapper .home-content .signin-signup p {
   margin-top: 50px;

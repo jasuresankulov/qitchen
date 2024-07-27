@@ -85,6 +85,8 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
 .sign-up-wrapper .sign-up-content .sign-up {
   background-color: #000;
@@ -111,6 +113,11 @@ button {
   justify-content: center;
   align-items: center;
   gap: 30px;
+}
+.sign-up-wrapper .sign-up-content .sign-up form a {
+  color: #EFE7D2;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: underline;
 }
 .sign-up-wrapper .sign-up-content .sign-up form p {
   width: 100%;

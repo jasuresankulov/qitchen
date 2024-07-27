@@ -14,7 +14,7 @@
   <div class="home-wrapper">
     <div class="home-content">
       <div class="signin-signup">
-        <h1>Welcome to the QITCHEN Website!</h1>
+        <h1>Welcome to the <img width="100" src="{% static 'media/anana.png' %}" alt=""> Website!</h1>
         {% if user.is_authenticated %}
           <p>
             <span class="hi">Hi, {{ user.username }}!</span> 

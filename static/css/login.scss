@@ -13,7 +13,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
+        flex-direction: column;
+        gap: 20px;
         .sign-in {
             background-color: #000;
             padding: 30px 50px;
@@ -32,7 +33,6 @@
                 font-style: normal;
                 color: $text-color;
             }
-
             form {
                 display: flex;
                 flex-direction: column;
@@ -40,6 +40,11 @@
                 justify-content: center;
                 align-items: center;
                 gap: 30px;
+                a{
+                    color: $text-color;
+                    font-family: "Montserrat", sans-serif;
+                    text-decoration: underline;
+                }
 
                 p {
                     width: 100%;

@@ -12,11 +12,13 @@
   <body>
     <div class="sign-up-wrapper">
       <div class="sign-up-content">
+        <img width="100" src="{% static 'media/anana.png' %}" alt="">
         <div class="sign-up">
           <h1>Sign Up</h1>
           <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
+            <a href="{% url "account_login" %}">Already registered? Log in now!</a>
             <button type="submit" class="white-btn">Sign Up</button>
           </form>
         </div>
