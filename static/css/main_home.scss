@@ -1,100 +1,160 @@
-@import './settings.scss';
+@import url("https://fonts.googleapis.com/css2?family=Forum&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.border-btn {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #EFE7D2;
+  border: 2px solid #EFE7D2;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.white-btn {
+  padding: 10px 20px;
+  background-color: #EFE7D2;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.menu-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 55;
+  background-color: #000;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  visibility: hidden;
+}
+.menu-nav.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+.menu-nav ul {
+  color: #EFE7D2;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.menu-nav ul li {
+  font-size: 60px;
+  font-family: "Forum", serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.menu-nav ul li a {
+  color: #EFE7D2;
+}
 
 .home-wrapper {
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-
-    .home-content {
-        width: 100%;
-        height: 100%;
-        backdrop-filter: blur(8px);
-        background-color: #00000071;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .signin-signup {
-            background-color: #000;
-            padding: 30px 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-            border-radius: 10px;
-            border: 3px solid var(--border-default, rgba(239, 231, 210, 0.301));
-
-            h1 {
-                font-family: "Forum", serif;
-                font-weight: 700;
-                font-style: normal;
-                color: $text-color;
-            }
-
-            p {
-                margin-top: 50px;
-                display: flex;
-                align-items: center;
-                gap: 20px;
-
-                span {
-                    color: $text-color;
-                    font-family: Helvetica, sans-serif;
-
-                    font-size: 25px;
-                }
-            }
-        }
-    }
-
-    .modal-bg {
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        position: absolute;
-        backdrop-filter: blur(3px);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-        visibility: hidden;
-
-        &.active {
-            display: flex;
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal {
-            background-color: #000;
-            padding: 30px 50px;
-            display: flex;
-            width: auto;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 50px;
-            border-radius: 10px;
-            border: 3px solid var(--border-default, rgba(239, 231, 210, 0.301));
-
-            h1 {
-                font-family: "Forum", serif;
-                font-weight: 700;
-                font-style: normal;
-                color: $text-color;
-                text-wrap: nowrap;
-            }
-
-            .yes-no {
-                display: flex;
-                gap: 20px;
-
-            }
-        }
-
-    }
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  position: relative;
 }
+.home-wrapper .home-content {
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.4431372549);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-wrapper .home-content .signin-signup {
+  background-color: #000;
+  padding: 30px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  border-radius: 10px;
+  border: 3px solid var(--border-default, rgba(239, 231, 210, 0.301));
+}
+.home-wrapper .home-content .signin-signup h1 {
+  font-family: "Forum", serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #EFE7D2;
+}
+.home-wrapper .home-content .signin-signup p {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.home-wrapper .home-content .signin-signup p span {
+  color: #EFE7D2;
+  font-family: Helvetica, sans-serif;
+  font-size: 25px;
+}
+.home-wrapper .modal-bg {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: absolute;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  visibility: hidden;
+}
+.home-wrapper .modal-bg.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+.home-wrapper .modal-bg .modal {
+  background-color: #000;
+  padding: 30px 50px;
+  display: flex;
+  width: auto;
+  flex-direction: column;    
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  border-radius: 10px;
+  border: 3px solid var(--border-default, rgba(239, 231, 210, 0.301));
+}
+.home-wrapper .modal-bg .modal h1 {
+  font-family: "Forum", serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #EFE7D2;
+  text-wrap: nowrap;
+}
+.home-wrapper .modal-bg .modal .yes-no {
+  display: flex;
+  gap: 20px;
+}/*# sourceMappingURL=main_home.css.map */
