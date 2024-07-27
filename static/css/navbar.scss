@@ -1,0 +1,105 @@
+@import './settings.scss';
+
+.menu-container {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    color: snow;
+    width: auto;
+    position: absolute;
+    top: 48px;
+    left: 48px;
+    font-family: "Montserrat", sans-serif;
+    gap: 20px;
+    .burger-menu {
+        width: 40px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #222;
+        border-radius: 5px;
+        height: 40px;
+        gap: 5px;
+        padding: 5px;
+        border:2px solid $border-color;
+        .bar {
+            height: 2px;
+            width: 90%;
+            background-color: $text-color;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 85px;
+        left: 7%;
+        background-color: red;
+        width: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        z-index: 10; // Ensure it appears above other elements
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                padding: 15px;
+                border-bottom: 1px solid #ddd;
+
+                a {
+                    text-decoration: none;
+                    color: #333;
+                }
+            }
+        }
+
+        &.open {
+            display: block;
+        }
+
+    }
+
+    .main-links {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+
+        a {
+            color: $text-color;
+            text-decoration: none;
+            font-size: medium;
+
+            &.qitchen {
+                font-size: 35px;
+                font-family: "Forum", serif;
+                font-weight: 500;
+                font-style: normal;
+            }
+
+            &.user {
+                font-weight: 600;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    button {
+        padding: 18px;
+        background-color: #222;
+        border-radius: 10px;
+        color: snow;
+        cursor: pointer;
+        border: none;
+    }
+
+}

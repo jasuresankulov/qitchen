@@ -6,6 +6,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from .forms import SignUpForm
 from .models import Profile
+from django.contrib.auth import logout
+from django.urls import reverse
 
 def home(request):
     return render(request, 'home.html')
@@ -62,3 +64,6 @@ def profile_page(request, username=None):
     return render(request, "profile_page.html", context)
 
 
+def custom_logout(request):
+    logout(request)
+    return redirect(reverse('home'))
