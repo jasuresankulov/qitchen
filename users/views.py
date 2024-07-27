@@ -8,7 +8,7 @@ from .forms import SignUpForm
 from .models import Profile
 from django.contrib.auth import logout
 from django.urls import reverse
-
+from menu.models import Order
 def home(request):
     return render(request, 'home.html')
 
@@ -57,9 +57,10 @@ def profile_page(request, username=None):
     user = get_object_or_404(User, username=username)
 
     obj = get_object_or_404(Profile, user=user)
-
+    orders = Order.objects.filter(author_of_order=user)
     context = {
         "obj": obj,
+        "orders":orders
     }
     return render(request, "profile_page.html", context)
 

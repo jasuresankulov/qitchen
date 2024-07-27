@@ -15,3 +15,4 @@ class ReservationAdmin(admin.ModelAdmin):
     list_filter = ('reservation_date', 'reservation_time')
 
 admin.site.register(Reservation, ReservationAdmin)
+

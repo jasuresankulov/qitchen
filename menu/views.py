@@ -78,7 +78,7 @@ class CreateOrderView(APIView):
     def post(self, request, format=None):
         serializer = OrderSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(author_of_order=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -102,7 +102,9 @@ def order_create_view(request):
     if request.method == "POST":
         form = OrderForm(request.POST)
         if form.is_valid():
-            form.save()
+            order = form.save(commit=False)
+            order.author_of_order = request.user  # Set the author_of_order field
+            order.save()
             return redirect('order-list-view')
     else:
         form = OrderForm()

@@ -23,7 +23,7 @@
 <!-- orders/templates/orders/order_list.html -->
 {% for order in orders %}
 <li>
-    {{ order.customer_name }} - {{ order.product_name }} - {{ order.quantity }} - {{ order.price }}
+    {{ order.customer_name }} - {{ order.product_name }} - {{ order.quantity }} - {{ order.price }} - {{ order.author_of_order }}
     <a href="{% url 'order-edit-view' order.pk %}">Edit</a>
     <a href="{% url 'order-delete-view' order.pk %}">Delete</a>
 </li>

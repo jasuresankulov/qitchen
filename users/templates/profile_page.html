@@ -1,33 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="profile-wrapper">
-      <div class="profile">
-        <div class="profile-container">
-          <h1 class="username">{{ obj.user.username }}</h1>
-        </div>
-
-        {% comment %} <h2>Order List</h2>
-        {% include 'menu/order_list.html' %} {% endcomment %}
-
-
-
-        <!-- orders/templates/orders/profile_page.html -->
-        <h2>Create Order</h2>
-        <form method="post" action="{% url 'order-create-view' %}">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <button type="submit">Create</button>
-        </form>
-      </div>
+{% extends "base.html" %}
+{% block content %}
+<div class="profile-wrapper">
+  <div class="profile-container">
+    <div class="profile">
+      <h1 class="username">{{ obj.user.username }}</h1>
+      {% if request.user.username == obj.user.username %}
+     <h2>My orders</h2>
+     <ul>
+        {% for order in orders %}
+        <li>
+          {{ order.customer_name }} - {{ order.product_name }} - {{ order.quantity }} - {{ order.price }} - {{ order.author_of_order }}
+          {% comment %} <a href="{% url 'order_edit' order.id %}">Edit</a>
+          <a href="{% url 'order_delete' order.id %}">Delete</a> {% endcomment %}
+        </li>
+        {% endfor %}
+      </ul>
+     </ul>
+      <form method="post" action="{% url 'order-create-view' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="white-btn" type="submit">Create Order</button>
+      </form>
+      {% endif %}
     </div>
+  </div>
+</div>
 
-    {% comment %} <a href="{% url 'user_order_list' %}">My orders</a>
-    <a href="{% url 'order_menuItem' menuitem.id %}">Create order</a> {% endcomment %}
-  </body>
-</html>
+<style>
+.profile-wrapper {
+background: url('/static/media/welcomeImg.jpg');
+
+}
+</style>
+{% endblock content %}
+  
