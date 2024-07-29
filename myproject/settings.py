@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'menu',
     'rest_framework',
     'rest_framework_simplejwt',
-
 ]
 
 REST_FRAMEWORK = {
