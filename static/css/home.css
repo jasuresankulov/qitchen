@@ -1,58 +1,116 @@
-body{
-    background-color: black;
-}
-.main{
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 20px;
-}
-.text {
-    position: absolute;
-    bottom: 10%;
-    left: 4%;
-    color: snow;
-    font-size: 60px;
-    display: flex;
-    flex-direction: column;
-}
-.left {
-    background-image: url('../media/FirstBigImg.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;  
-    width: 100%;
-    height: 100vh;
-    border-radius: 20px;
-}
- .divs1{
-    background-image: url('../media/Image1.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%; 
-    width: 100%;
-    height: 31.5vh;
-    border-radius: 10px;
+@import url("https://fonts.googleapis.com/css2?family=Forum&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #EFE7D2;
 }
 
-.divs2{
-    background-image: url('../media/Image2.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%; 
-    width: 100%;
-    height: 31.5vh;
-    border-radius: 10px;
-    margin-top: 10px;
-
-}
-.divs3{
-    background-image: url('../media/Image3.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%; 
-    width: 100%;
-    height: 31.5vh;
-    border-radius: 10px;
-    margin-top: 15px;
+a {
+  text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
+.border-btn {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #EFE7D2;
+  border: 2px solid #EFE7D2;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.white-btn {
+  padding: 10px 20px;
+  background-color: #EFE7D2;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 10px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+}
+
+.menu-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 55;
+  background-color: #000;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  visibility: hidden;
+}
+.menu-nav.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+.menu-nav ul {
+  color: #EFE7D2;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.menu-nav ul li {
+  font-size: 60px;
+  font-family: "Forum", serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.menu-nav ul li a {
+  color: #EFE7D2;
+}
+
+.main {
+  display: grid;
+  gap: 20px;
+  background-color: #000;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.main .carousel {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1.5s ease-in-out;
+  z-index: 1;
+  position: relative;
+}
+.main .carousel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+.main .carousel img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 1;
+}
+.main .carousel img.active {
+  opacity: 1;
+}/*# sourceMappingURL=home.css.map */

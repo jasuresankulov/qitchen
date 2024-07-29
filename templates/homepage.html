@@ -5,14 +5,35 @@
 {% endblock %}
 {% block content %}
   <div class="main">
-    <div class="left">
-        
-    </div>
-    
-    <div class="right">
-        <div class="divs1"></div>
-        <div class="divs2"></div>
-        <div class="divs3"></div>
+    <div class="carousel">
+      <!-- Контейнер для фоновых изображений -->
     </div>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let currentImageIndex = 0;
+        const carousel = document.querySelector('.carousel');
+        const images = [
+            '{% static "media/lepeshki.jpg" %}',
+            '{% static "media/shashlik.jpg" %}',
+            '{% static "media/shurpa.jpg" %}'
+            // Добавьте больше URL-ов изображений по необходимости
+        ];
+        const totalImages = images.length;
+
+        function showNextImage() {
+            // Устанавливаем следующее изображение как фоновое
+            carousel.style.backgroundImage = `url(${images[currentImageIndex]})`;
+            
+            // Увеличиваем индекс текущего изображения
+            currentImageIndex = (currentImageIndex + 1) % totalImages;
+        }
+
+        // Устанавливаем начальное изображение
+        showNextImage();
+
+        // Меняем изображения каждые 3 секунды
+        setInterval(showNextImage, 3000);
+    });
+  </script>
 {% endblock %}

@@ -1,0 +1,46 @@
+@import './settings.scss';
+
+.main {
+    display: grid;
+    gap: 20px;
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    position: relative; // Добавляем это для управления псевдо-элементом
+
+    .carousel {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        transition: background-image 1.5s ease-in-out;
+        z-index: 1;
+        position: relative; // Добавляем это для управления псевдо-элементом
+
+        // Псевдо-элемент для черного полупрозрачного фона
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); // Черный цвет с 50% прозрачностью
+            z-index: 2; // Устанавливаем z-index выше, чтобы перекрывать изображение
+        }
+
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 1; // Устанавливаем z-index ниже, чтобы изображение было под полупрозрачным слоем
+
+            &.active {
+                opacity: 1;
+            }
+        }
+    }
+}
