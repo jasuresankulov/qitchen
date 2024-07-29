@@ -3,11 +3,18 @@ from django.contrib.auth.models import User
 
 
 class MenuItem(models.Model):
+    CHOICE_CATEGORY = [
+        ('Hammasi','Hammasi'),
+        ("Go'shtli","Go'shtli"),
+        ('Salatlar','Salatlar'),
+        ('Shirinlik','Shirinlik'),
+        ('Ichimliklar','Ichimliklar')
+    ]
     name = models.CharField(max_length=100)
     description = models.TextField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
     available = models.BooleanField(default=True)
-
+    category = models.CharField(max_length=15, choices=CHOICE_CATEGORY, default='Hammasi')
     def __str__(self):
         return self.name
 
