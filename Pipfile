@@ -8,6 +8,8 @@ django = "*"
 djangorestframework = "*"
 django-allauth = "*"
 jwt = "*"
+rest-framework-simplejwt = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 

@@ -20,7 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
     path('menu/', include('menu.urls')),
-    path('homepage/', views.homepage),
+    path('homepage/', views.homepage, name='homepage'),
     path('about/', views.about),
     path('menu_item/', views.menu_item),
     path('accounts/', include('allauth.urls')),

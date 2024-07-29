@@ -9,13 +9,12 @@
     <div class="left-5"></div>
 
     <div class="right-5">
-                <h1 style="color: snow;">{% if form.instance.pk %}Edit{% else %}New{% endif %} Menu Item</h1>
+                <h1>{% if form.instance.pk %}Edit{% else %}New{% endif %} Menu Item</h1>
                 <form method="post">
                     {% csrf_token %}
                     {{ form }}
-                    <br>
-                    <button class="btn-form" type="submit">Save</button>
-                    <a class="cancel" href="{% url 'menu_list' %}">Cancel</a>    
+                    <button class="white-btn" type="submit">Save</button>
+                    <a class="border-btn" href="{% url 'menu_list' %}">Cancel</a>    
                 </form>
     </div>
   </div>

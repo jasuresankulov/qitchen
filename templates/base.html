@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>
       {% block title %}
         Django App
@@ -14,6 +15,7 @@
     </title>
     <script src="{% static 'js/main.js' %}" defer></script>
     <script src="{% static 'js/menu.js' %}" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     {% block css %}
 
@@ -67,6 +69,19 @@
           }
         }
         burgerMenu.addEventListener('click', ModalFn)
+
+        // Toastify for displaying messages
+        {% if messages %}
+          {% for message in messages %}
+            Toastify({
+              text: "{{ message }}",
+              duration: 3000,  // Duration of the toast in milliseconds
+              gravity: "top",  // `top` or `bottom`
+              position: "right",  // `left`, `center` or `right`
+              backgroundColor: "#4CAF50",  // Background color of the toast
+            }).showToast();
+          {% endfor %}
+        {% endif %}
       })
     </script>
   </body>

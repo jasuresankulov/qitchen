@@ -1,66 +1,128 @@
-.main-menu-detail{
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
+@import url("https://fonts.googleapis.com/css2?family=Forum&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #EFE7D2;
 }
 
-.left-5 {
-    background-image: url('../media/aboutBigImg.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;  
-    width: 100%;
-    height: 100vh;
-    border-radius: 20px;
-}
-.right-5{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-}
-form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-} 
-
-.inp-control-1{
-    background-color:#222;
-    padding: 20px;
-    margin-top: 10px;
-    margin-left: 65px;
-    width: 500px;
-    border: 1px solid gray;
-    border-radius: 10px;
-}
-.inp-control-2{
-    background-color: #222;
-    padding: 10px;
-    margin-left: 65px;
-    padding: 20px;
-    width: 500px;
-    border: 1px solid gray;
-    border-radius: 10px;
- 
-}
-.inp-control-3{
-    background-color: #222;
-    padding: 10px;
-    margin-left: 65px;
-    padding: 20px;
-    width: 500px;
-    border: 1px solid gray;
-    border-radius: 10px;
- 
+a {
+  text-decoration: none;
 }
 
-.btn-form{
-    background-color: #333;
-    width:510px;
-    color: black;
-    margin-left: 65px;
+button {
+  cursor: pointer;
 }
+
+.border-btn {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #EFE7D2;
+  border: 2px solid #EFE7D2;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.white-btn {
+  padding: 10px 20px;
+  background-color: #EFE7D2;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 10px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+}
+
+.main-menu-detail .right-5 form div input, .main-menu-detail .right-5 form div select {
+  width: 100%;
+  background-color: #222120;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border-default, rgba(239, 231, 210, 0.301));
+  outline: none;
+  color: #EFE7D2;
+}
+.main-menu-detail .right-5 form div input::-moz-placeholder, .main-menu-detail .right-5 form div select::-moz-placeholder {
+  color: #807d71;
+}
+.main-menu-detail .right-5 form div input::placeholder, .main-menu-detail .right-5 form div select::placeholder {
+  color: #807d71;
+}
+
+.menu-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 55;
+  background-color: #000;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  visibility: hidden;
+}
+.menu-nav.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+.menu-nav ul {
+  color: #EFE7D2;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.menu-nav ul li {
+  font-size: 60px;
+  font-family: "Forum", serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.menu-nav ul li a {
+  color: #EFE7D2;
+}
+
+.main-menu-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100vh;
+}
+.main-menu-detail .left-5 {
+  background-image: url("../media/aboutBigImg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main-menu-detail .right-5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-menu-detail .right-5 form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.main-menu-detail .right-5 form button {
+  margin-top: 20px;
+}
+.main-menu-detail .right-5 form a {
+  text-align: center;
+}
+.main-menu-detail .right-5 form div label {
+  display: none;
+}
+.main-menu-detail .right-5 form div input, .main-menu-detail .right-5 form div select {
+  width: 100%;
+}/*# sourceMappingURL=crud_menu_form.css.map */

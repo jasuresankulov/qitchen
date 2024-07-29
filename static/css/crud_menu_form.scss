@@ -1,0 +1,41 @@
+@import './settings.scss';
+
+.main-menu-detail{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100vh;
+    .left-5{
+        background-image: url('../media/aboutBigImg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+    .right-5{
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         form{
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            button{
+                margin-top: 20px;
+            }
+            a{
+                text-align: center;
+            }
+            div{
+                label{
+                    display: none;
+                }
+                input, select{
+                    @extend %input-style;
+                    width: 100%;
+                }
+            }
+         }
+    }
+}

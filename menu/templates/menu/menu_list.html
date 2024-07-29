@@ -9,7 +9,9 @@
     <div class="crud-main-1">
         <div class="main-crud">
             <h1 style="color: yellow;">Menu List</h1>
+            {% if request.user.username == 'admin' %}
             <a class="add-new" href="{% url 'menu_create' %}">Add new item</a>
+            {% endif %}
             <ul>
               {% for item in items %}
                 <li>

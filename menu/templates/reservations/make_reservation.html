@@ -2,21 +2,22 @@
 {% load static %}
 {% block css %}
   <link rel="stylesheet" href="{% static 'css/reservation.css' %}" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 {% endblock %}
 {% block content %}
   <div class="main-reservation">
     <div class="left-4"></div>
 
     <div class="right-4">
+      <h1>Reservation</h1>
       <form method="post">
-        <h1 style="color: snow;">Reservation</h1>
         {% csrf_token %}
         {{ form }}
-        <br>
-        
-        <button class="btn-reserve" type="submit">Submit</button>
+        <br />
+
+        <button class="white-btn" type="submit">Submit</button>
       </form>
     </div>
   </div>
 {% endblock %}
-

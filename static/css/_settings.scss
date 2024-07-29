@@ -9,6 +9,8 @@ $border-color: #EFE7D215;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    color: $text-color;
 }
 
 a {
@@ -39,7 +41,19 @@ button {
     border:none;
     outline: none;
 }
+%input-style{
+        width: 100%;
+        background-color: $input-bg-color;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: 1px solid var(--border-default, rgba(239, 231, 210, 0.301));
+        outline: none;
+        color: $text-color;
 
+        &::placeholder {
+            color: $input-text-color;
+        }
+}
 .menu-nav {
     position: absolute;
     top: 0;

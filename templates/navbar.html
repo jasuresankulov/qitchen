@@ -12,7 +12,9 @@
     <a href="/menu_item">Menu</a>
     <a href="/about">About</a>
     <a href="/menu/make_reservation">BOOK A TABLE</a>
-    <a href="/menu">Crud</a>
+    {% if request.user.username == 'admin' %}
+    <a href="{% url "menu_create" %}">Crud</a>  
+    {% endif %}
     <a class="user" href="{% url "profile_page" request.user.username %}">{{request.user.username}}</a>
   </div>
   

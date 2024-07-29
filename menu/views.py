@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import MenuItem, Order
 from .forms import MenuItemForm, ReservationForm, OrderForm
-
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 
@@ -22,16 +22,20 @@ def menu_list(request):
 def menu_detail(request, pk):
     item = get_object_or_404(MenuItem, pk=pk)
     return render(request, 'menu/menu_detail.html', {'item': item})
-
+@login_required
 def menu_create(request):
-     if request.method == "POST":
-         form = MenuItemForm(request.POST)
-         if form.is_valid():
-             item = form.save()
-             return redirect('menu_detail', pk=item.pk)
-     else:
-         form = MenuItemForm()
-     return render(request, 'menu/menu_form.html', {'form': form})
+    if request.user.username != 'admin':
+        return redirect('homepage')  # редирект на главную страницу если не admin
+
+    if request.method == "POST":
+        form = MenuItemForm(request.POST)
+        if form.is_valid():
+            item = form.save()
+            return redirect('menu_detail', pk=item.pk)
+    else:
+        form = MenuItemForm()
+        
+    return render(request, 'menu/menu_form.html', {'form': form})
 
 
 def menu_update(request, pk):
@@ -44,7 +48,13 @@ def menu_update(request, pk):
     else:
         form = MenuItemForm(instance=item)
     return render(request, 'menu/menu_form.html', {'form': form})
-
+@login_required
+def menu_delete(request, pk):
+    item = get_object_or_404(MenuItem, pk=pk)
+    if request.method == "POST":
+        item.delete()
+        return redirect('menu_list')
+    return render(request, 'menu/menu_confirm_delete.html', {'item': item})
 
 def make_reservation(request):
     # Your view logic here
@@ -55,11 +65,11 @@ def make_reservation(request):
         form = ReservationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('reservation_success')
+            messages.success(request, 'Reservation made successfully!')
+            redirect('homepage')
     else:
         form = ReservationForm()
     return render(request, 'reservations/make_reservation.html', {'form': form})
-
 def reservation_success(request):
     return render(request, 'reservations/reservation_success.html')
 
