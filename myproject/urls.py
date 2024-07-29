@@ -6,6 +6,11 @@ from menu.api_views import MenuItemViewSet, ReservationView, ReservationViewSet
 # from reservations.api_views import ReservationView
 from rest_framework.routers import DefaultRouter
 
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+
 router = DefaultRouter()
 router.register(r'menuitems', MenuItemViewSet, basename='menuitem')
 router.register(r'reservations', ReservationViewSet, basename='reservation')
@@ -23,9 +28,10 @@ urlpatterns = [
     path('api/reservations/', ReservationView.as_view(), name='reservation-list'),
     path('api/reservations/<int:pk>/', ReservationView.as_view(), name='reservation-detail'),
     
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     
-    # Use direct URL mapping for ReservationView
-    # path('apis-reservation/', ReservationView.as_view(), name='reservations'),
+    path('protected/', views.protected_view, name='protected_view'),
 
     # Include router URLs
     path('apis/', include(router.urls)),

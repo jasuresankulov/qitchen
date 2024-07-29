@@ -44,8 +44,16 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
     'users',
     'menu',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework_simplejwt',
+
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
