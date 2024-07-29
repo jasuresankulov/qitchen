@@ -108,24 +108,24 @@ def order_create_view(request):
             order = form.save(commit=False)
             order.author_of_order = request.user  # Set the author_of_order field
             order.save()
-            return redirect('order-list-view')
+            return redirect('myorders')
     else:
         form = OrderForm()
     return render(request, 'menu/order_form.html', {'form': form})
 
 # ==========================================================================================
 
-def profile_page_view(request):
+def profile_page(request):
     if request.method == "POST":
         form = OrderForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('profile-page-view')
+            return redirect('profile')
     else:
         form = OrderForm()
     
     orders = Order.objects.all()
-    return render(request, 'users/profile_page.html', {'orders': orders, 'form': form})
+    return render(request, 'users/profile/profile_page.html', {'orders': orders, 'form': form})
 
 def order_edit_view(request, pk):
     order = get_object_or_404(Order, pk=pk)
@@ -133,7 +133,7 @@ def order_edit_view(request, pk):
         form = OrderForm(request.POST, instance=order)
         if form.is_valid():
             form.save()
-            return redirect('profile-page-view')
+            return redirect('myorders')
     else:
         form = OrderForm(instance=order)
     return render(request, 'menu/order_form.html', {'form': form, 'edit': True})
@@ -142,23 +142,14 @@ def order_delete_view(request, pk):
     order = get_object_or_404(Order, pk=pk)
     if request.method == "POST":
         order.delete()
-        return redirect('order-list-create')
+        return redirect('myorders')
     return render(request, 'menu/order_confirm_delete.html', {'order': order})
 
-
+def myorders_view(request):
+    orders = Order.objects.filter(author_of_order=request.user)  # Фильтруйте заказы для текущего пользователя
+    return render(request, 'menu/myorders.html', {'orders': orders})
 # =============================================================================
 
-def profile_page_view(request):
-    if request.method == "POST":
-        form = OrderForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('profile-page-view')
-    else:
-        form = OrderForm()
-    
-    orders = Order.objects.all()
-    return render(request, 'users/profile_page.html', {'orders': orders, 'form': form})
 # @login_required
 # def order_dish(request, menuitem_id):
 #     menuItem = get_object_or_404(MenuItem, id=menuitem_id)

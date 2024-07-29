@@ -15,7 +15,7 @@
     {% if request.user.username == 'admin' %}
     <a href="{% url "menu_create" %}">Crud</a>  
     {% endif %}
-    <a class="user" href="{% url "profile_page" request.user.username %}">{{request.user.username}}</a>
+    <a class="user" href="{% url "profile" request.user.username %}">{{request.user.username}}</a>
   </div>
   
 </div>

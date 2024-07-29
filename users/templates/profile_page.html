@@ -6,15 +6,7 @@
       <h1 class="username">{{ obj.user.username }}</h1>
       {% if request.user.username == obj.user.username %}
      <h2>My orders</h2>
-     <ul>
-        {% for order in orders %}
-        <li>
-          {{ order.customer_name }} - {{ order.product_name }} - {{ order.quantity }} - {{ order.price }} - {{ order.author_of_order }}
-          {% comment %} <a href="{% url 'order_edit' order.id %}">Edit</a>
-          <a href="{% url 'order_delete' order.id %}">Delete</a> {% endcomment %}
-        </li>
-        {% endfor %}
-      </ul>
+     {% include 'menu/order_list.html' %}
      </ul>
       <form method="post" action="{% url 'order-create-view' %}">
         {% csrf_token %}

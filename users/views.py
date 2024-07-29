@@ -9,6 +9,10 @@ from .models import Profile
 from django.contrib.auth import logout
 from django.urls import reverse
 from menu.models import Order
+from django.shortcuts import render
+from menu.models import Order
+from menu.forms import OrderForm
+
 def home(request):
     return render(request, 'home.html')
 
@@ -68,3 +72,19 @@ def profile_page(request, username=None):
 def custom_logout(request):
     logout(request)
     return redirect(reverse('home'))
+
+# profile/views.py
+
+def profile(request):
+    if request.method == "POST":
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            order = form.save(commit=False)
+            order.user = request.user  # Привязка заказа к текущему пользователю, если необходимо
+            order.save()
+            return redirect('profile')
+    else:
+        form = OrderForm()
+    
+    orders = Order.objects.filter(user=request.user)  # Фильтрация заказов для текущего пользователя
+    return render(request, 'users/profile_page.html', {'orders': orders, 'form': form})

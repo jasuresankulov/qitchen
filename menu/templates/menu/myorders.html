@@ -1,0 +1,24 @@
+<!-- orders/templates/orders/myorders.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Orders</title>
+</head>
+<body>
+    <h1>My Orders</h1>
+    
+    <ul>
+        {% for order in orders %}
+            <li>
+                {{ order.customer_name }} - {{ order.product_name }} - {{ order.quantity }} - {{ order.price }} - {{ order.author_of_order }}
+                <a href="{% url 'order-edit-view' order.pk %}">Edit</a>
+                <a href="{% url 'order-delete-view' order.pk %}">Delete</a>
+            </li>
+        {% empty %}
+            <li>No orders available.</li>
+        {% endfor %}
+    </ul>
+    
+    <a href="{% url 'profile' %}">Back to Creating orders</a>
+</body>
+</html>

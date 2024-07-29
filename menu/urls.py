@@ -22,9 +22,10 @@ urlpatterns = [
     path('orders-list/', order_list_view, name='order-list-view'),
     path('orders/<int:pk>/detail/', order_detail_view, name='order-detail-view'),
     path('orders/create/', order_create_view, name='order-create-view'),
-    
-    
-    path('users/', profile_page_view, name='profile-page-view'),
+
+    path('create/', order_create_view, name='order-create-view'),
+    path('profile/', order_create_view, name='profile'),
+    path('myorders/', myorders_view, name='myorders'),  # Добавьте путь к myorders
     path('orders/<int:pk>/edit/', order_edit_view, name='order-edit-view'),
     path('orders/<int:pk>/delete/', order_delete_view, name='order-delete-view'),
     # path('order/<int:menuitem_id>/', order_dish, name='order_menuItem'),  
