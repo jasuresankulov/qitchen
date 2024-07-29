@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-
+from menu.models import MenuItem
 
 @login_required
 def homepage(request):
@@ -10,6 +10,10 @@ def about(request):
     return render(request, 'about.html')
 @login_required
 def menu_item(request):
-    return render(request, 'menu_item.html')
+    menu_items = MenuItem.objects.all()
+    context = {
+        "menu_items":menu_items
+    }
+    return render(request, 'menu_item.html', {'context': context})
 
  

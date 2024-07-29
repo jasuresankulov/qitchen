@@ -31,6 +31,8 @@ button {
   font-family: "Montserrat", sans-serif;
   border-radius: 10px;
   font-weight: 500;
+  border: none;
+  outline: none;
 }
 
 .menu-nav {

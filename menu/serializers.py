@@ -6,7 +6,7 @@ from .models import MenuItem, Reservation,Order
 class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = MenuItem
-        fields = ['url','name', 'description', 'price', 'available']
+        fields = ['url','name', 'description', 'price', 'available','category']
 
 # ====================================================================================
 
