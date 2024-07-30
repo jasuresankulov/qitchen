@@ -1,24 +1,53 @@
-<!-- orders/templates/orders/myorders.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Orders</title>
-</head>
-<body>
-    <h1>My Orders</h1>
-    
-    <ul>
-        {% for order in orders %}
-            <li>
-                {{ order.customer_name }} - {{ order.product_name }} - {{ order.quantity }} - {{ order.price }} - {{ order.author_of_order }}
-                <a href="{% url 'order-edit-view' order.pk %}">Edit</a>
-                <a href="{% url 'order-delete-view' order.pk %}">Delete</a>
-            </li>
-        {% empty %}
-            <li>No orders available.</li>
-        {% endfor %}
-    </ul>
-    
-    <a href="{% url 'profile' %}">Back to Creating orders</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+My Orders
+{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/my-orders.css' %}">
+<style>
+    .my-order-wrapper{
+        background: url("{% static 'media/plov4k.jpeg' %}") no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+</style>
+{% endblock css %}
+
+{% block content %}
+<div class="my-order-wrapper">
+    <div class="my-order-content">
+        <div class="my-order">
+            <h1>My Orders</h1>
+            
+            <ul>
+                {% for order in orders %}
+                    <li>
+                        <span><b>Name: </b>{{ order.customer_name }}<br/> </span>
+                        <span><b>Product name: </b>{{ order.product_name }}<br/></span>
+                        <span><b>Quantity: </b>{{ order.quantity }}<br/></span>
+                        <span><b>Price: </b>{{ order.price }}<br/></span>
+                        <span><b>Author: </b>{{ order.author_of_order }}<br/></span>
+                        
+                        
+                        
+                        
+                        <div class="btns">
+                            <a class="white-btn" href="{% url 'order-edit-view' order.pk %}">Edit</a>
+                            <a class="border-btn" href="{% url 'order-delete-view' order.pk %}">Delete</a>
+                        </div>
+                    </li>
+                {% empty %}
+                    <li>No orders available.</li>
+                {% endfor %}
+            </ul>
+            <div class="back">
+
+                <a class="border-btn back-btn"  href="{% url 'profile' %}">Back to Creating orders</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,53 @@
+@import './settings';
+
+.my-order-wrapper{
+    
+    width: 100%;
+    height: 100vh;
+    .my-order-content{
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(5px);
+        background-color: #00000050;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .my-order{
+            background-color: #000;
+            border-radius: 20px;
+            border: 3px solid $input-bg-color;
+            padding: 20px;
+            width: 700px;
+            height: auto;
+            h1{
+                text-align: center;
+            }
+            ul{
+                list-style-type: none;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                li{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    background-color: #000;
+                    border-radius: 10px;
+                    border: 3px solid $input-bg-color;
+                    gap: 10px;
+                    padding: 10px;
+                    .btns{
+                        a{
+                            padding: 7px;
+                        }
+                        margin: 10px 0;
+                    }
+                }
+            }
+            .back{
+                height: 70px;
+                display: flex;
+                align-items: end;
+            }
+        }
+    }
+}

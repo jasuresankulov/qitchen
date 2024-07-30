@@ -39,3 +39,10 @@ class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = ['customer_name', 'product_name', 'quantity', 'price']
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['customer_name'].widget.attrs.update({'placeholder': 'Customer name'})
+        self.fields['product_name'].widget.attrs.update({'placeholder': 'Product name'})
+        self.fields['quantity'].widget.attrs.update({'placeholder': 'Quantity'})
+        self.fields['price'].widget.attrs.update({'placeholder': 'Price'})

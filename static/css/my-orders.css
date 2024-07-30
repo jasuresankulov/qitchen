@@ -75,31 +75,54 @@ button {
   color: #EFE7D2;
 }
 
-.profile-wrapper {
+.my-order-wrapper {
   width: 100%;
   height: 100vh;
-  background-size: cover;
 }
-.profile-wrapper .profile-container {
+.my-order-wrapper .my-order-content {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 0, 0.3137254902);
-}
-.profile-wrapper .profile-container .profile {
-  background-color: #000;
-  padding: 30px 50px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 25px;
+}
+.my-order-wrapper .my-order-content .my-order {
+  background-color: #000;
+  border-radius: 20px;
+  border: 3px solid #222120;
+  padding: 20px;
+  width: 700px;
+  height: auto;
+}
+.my-order-wrapper .my-order-content .my-order h1 {
+  text-align: center;
+}
+.my-order-wrapper .my-order-content .my-order ul {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.my-order-wrapper .my-order-content .my-order ul li {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
   border-radius: 10px;
-  border: 3px solid var(--border-default, rgba(239, 231, 210, 0.301));
-  color: #EFE7D2;
-  font-family: "Montserrat", sans-serif;
-}/*# sourceMappingURL=profile.css.map */
+  border: 3px solid #222120;
+  gap: 10px;
+  padding: 10px;
+}
+.my-order-wrapper .my-order-content .my-order ul li .btns {
+  margin: 10px 0;
+}
+.my-order-wrapper .my-order-content .my-order ul li .btns a {
+  padding: 7px;
+}
+.my-order-wrapper .my-order-content .my-order .back {
+  height: 70px;
+  display: flex;
+  align-items: end;
+}/*# sourceMappingURL=my-orders.css.map */

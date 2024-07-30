@@ -1,33 +1,28 @@
-{% comment %} <!-- orders/templates/orders/order_form.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{% if edit %}Edit Order{% else %}Create Order{% endif %}</title>
-</head>
-<body>
+
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/order_form.css' %}">
+{% endblock css %}
+{% block content %}
+<div class="order-form-wrapper">
+<div class="left">
+
+</div>
+<div class="right">
     <h1>{% if edit %}Edit Order{% else %}Create Order{% endif %}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">{% if edit %}Update{% else %}Create{% endif %}</button>
+        <button class="white-btn" type="submit">{% if edit %}Update{% else %}Create{% endif %}</button>
+        <a class="border-btn" href="{% url 'order-list-view' %}">Back to Order List Page</a>
     </form>
-    <a href="{% url 'profile-page-view' %}">Back to Profile Page</a>
-</body>
-</html> {% endcomment %}
+</div>
+</div>
+<style>
+    .left{
+        background: url("{% static 'media/tea.jpg' %}");
+    }
+</style>
 
-
-<!-- orders/templates/orders/order_form.html -->
-{% comment %} <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create</button>
-</form> {% endcomment %}
-
-<h1>{% if edit %}Edit Order{% else %}Create Order{% endif %}</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">{% if edit %}Update{% else %}Create{% endif %}</button>
-</form>
-<a href="{% url 'order-list-view' %}">Back to Order List Page</a>
-
+{% endblock content %}

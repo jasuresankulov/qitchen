@@ -10,6 +10,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        backdrop-filter: blur(5px);  
+        background-color: #00000050; 
         .profile{
             background-color: #000;
             padding: 30px 50px;
