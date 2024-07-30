@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django import forms
+from django.core.exceptions import ValidationError
 
 
 class MenuItem(models.Model):
@@ -19,6 +21,7 @@ class MenuItem(models.Model):
         return self.name
 
 
+
 class Reservation(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -28,8 +31,23 @@ class Reservation(models.Model):
     reservation_time = models.TimeField()
     special_requests = models.TextField(blank=True, null=True)
 
+    class Meta:
+        unique_together = ('name', 'reservation_date', 'reservation_time')
+
     def __str__(self):
         return f'Reservation for {self.name} on {self.reservation_date} at {self.reservation_time}'
+    
+    def clean(self):
+        if Reservation.objects.filter(
+                name=self.name,
+                reservation_date=self.reservation_date,
+                reservation_time=self.reservation_time
+        ).exclude(id=self.id).exists():
+            raise ValidationError('A reservation with the same name, date, and time already exists.')
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        super(Reservation, self).save(*args, **kwargs)
 
 
 # class Order(models.Model):
@@ -55,3 +73,5 @@ class Order(models.Model):
     author_of_order = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return f'Order {self.id} by {self.customer_name}'
+
+

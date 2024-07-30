@@ -22,7 +22,7 @@
           </p>
           <br>
           <br>
-          <a class="white-btn" href="homepage/">Click here to visit site!</a>
+          <a class="white-btn" href="{% url "homepage" %}">Click here to visit site!</a>
         {% else %}
           <p>
             <a class="border-btn" href="{% url 'account_login' %}">Sign In</a>

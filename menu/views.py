@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import MenuItem, Order
+from .models import MenuItem, Order, Reservation
 from .forms import MenuItemForm, ReservationForm, OrderForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ValidationError
 
 
 from rest_framework.views import APIView
@@ -56,6 +57,10 @@ def menu_delete(request, pk):
         return redirect('menu_list')
     return render(request, 'menu/menu_confirm_delete.html', {'item': item})
 
+# =============================RESERVATION=========================================================
+
+
+
 def make_reservation(request):
     # Your view logic here
     return render(request, 'make_reservation.html')
@@ -66,7 +71,7 @@ def make_reservation(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Reservation made successfully!')
-            redirect('homepage')
+            return redirect('homepage')
     else:
         form = ReservationForm()
     return render(request, 'reservations/make_reservation.html', {'form': form})

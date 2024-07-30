@@ -15,7 +15,7 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button class="white-btn" type="submit">{% if edit %}Update{% else %}Create{% endif %}</button>
-        <a class="border-btn" href="{% url 'order-list-view' %}">Back to Order List Page</a>
+        <a class="border-btn" href="{% url 'myorders' %}">Back to Order List Page</a>
     </form>
 </div>
 </div>

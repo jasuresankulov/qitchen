@@ -46,3 +46,5 @@ class OrderForm(forms.ModelForm):
         self.fields['product_name'].widget.attrs.update({'placeholder': 'Product name'})
         self.fields['quantity'].widget.attrs.update({'placeholder': 'Quantity'})
         self.fields['price'].widget.attrs.update({'placeholder': 'Price'})
+
+
