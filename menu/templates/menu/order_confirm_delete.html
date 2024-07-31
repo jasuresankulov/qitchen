@@ -1,20 +1,46 @@
-<!-- orders/templates/orders/order_confirm_delete.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Oʻchirishni tasdiqlang</title>
-</head>
-<body>
-    <h1>Oʻchirishni tasdiqlang</h1>
-    <p>Haqiqatan ham quyidagi tartibni oʻchirib tashlamoqchimisiz?</p>
-    <p>Mijoz nomi: {{ order.customer_name }}</p>
-    <p>Mahsulot nomi: {{ order.product_name }}</p>
-    <p>Miqdori: {{ order.quantity }}</p>
-    <p>Narxi: {{ order.price }}</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Oʻchirishni tasdiqlang</button>
-    </form>
-    <a href="{% url 'myorders' %}">Bekor qilish</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/delete_order.css' %}">
+<style>
+    .order-delete-wrapper {
+        position: relative;
+        background-image: url("{% static 'images/banket.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .order-delete-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+.order-delete-wrapper > * {
+    position: relative;
+    z-index: 2;
+}
+
+</style>
+{% endblock css %}
+{% block content %}
+<div class="order-delete-wrapper">
+    <div class="order-delete-container">
+        <h1>Oʻchirishni tasdiqlang</h1>
+        <p>Haqiqatan ham quyidagi tartibni oʻchirib tashlamoqchimisiz?</p>
+        <p><b>Mijoz nomi:</b> {{ order.customer_name }}</p>
+        <p><b>Mahsulot nomi:</b> {{ order.product_name }}</p>
+        <p><b>Miqdori:</b> {{ order.quantity }}</p>
+        <p><b>Narxi:</b> {{ order.price }}</p>
+        <form method="post">
+            {% csrf_token %}
+            <button class="white-btn" type="submit">Oʻchirishni tasdiqlang</button>
+        </form>
+        <a class="border-btn" href="{% url 'myorders' %}">Bekor qilish</a>
+    </div>
+</div>
+{% endblock content %}
+
