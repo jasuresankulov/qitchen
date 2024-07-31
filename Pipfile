@@ -11,6 +11,7 @@ jwt = "*"
 rest-framework-simplejwt = "*"
 djangorestframework-simplejwt = "*"
 pillow = "*"
+requests = "*"
 
 [dev-packages]
 
