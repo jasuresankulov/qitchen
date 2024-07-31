@@ -98,7 +98,7 @@ button {
   height: 100vh;
 }
 .main-menu-detail .left-5 {
-  background-image: url("../media/aboutBigImg.png");
+  background-image: url("../images/aboutBigImg.png");
   background-repeat: no-repeat;
   background-size: cover;
 }

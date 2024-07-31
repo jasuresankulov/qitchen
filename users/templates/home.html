@@ -7,14 +7,14 @@
 </head>
 <style>
   .home-wrapper{
-    background-image: url('static/media/table.jpg');
+    background-image: url('static/images/table.jpg');
   }
 </style>
 <body>
   <div class="home-wrapper">
     <div class="home-content">
       <div class="signin-signup">
-        <h1>Welcome to the <img width="100" src="{% static 'media/anana.png' %}" alt=""> Website!</h1>
+        <h1>Welcome to the <img width="100" src="{% static 'images/anana.png' %}" alt=""> Website!</h1>
         {% if user.is_authenticated %}
           <p>
             <span class="hi">Hi, {{ user.username }}!</span> 

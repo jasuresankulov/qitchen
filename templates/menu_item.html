@@ -22,6 +22,7 @@
       <div id="menu-items">
         {% for item in context.menu_items %}
           <div class="menu-item" data-category="{{ item.category }}">
+            <img src="{{item.image.url}}" width="100%" alt="">
             <h3>{{ item.name }}</h3>
             <p>{{ item.description }}</p>
             <p>Price: {{ item.price }}</p>
@@ -32,7 +33,7 @@
   </div>
   <style>
     .left-2 {
-      background-image: url("{% static 'media/achuvhuk.jpg' %}");  
+      background-image: url("{% static 'images/achuvhuk.jpg' %}");  
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;

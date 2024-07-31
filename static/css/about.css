@@ -6,7 +6,7 @@
     height: 100vh;
 }
 .left-3 {
-    background-image: url('../media/uzbRestaurant.jpg');
+    background-image: url('../images/uzbRestaurant.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;  
@@ -56,7 +56,7 @@
 }
 
 .n-2{
-    background-image: url('../media/plov4k.jpeg');
+    background-image: url('../images/plov4k.jpeg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;  
@@ -89,7 +89,7 @@
     padding: 10px;
 }
 .n-6 {
-    background-image: url('../media/uzbstol.jpg');
+    background-image: url('../images/uzbstol.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

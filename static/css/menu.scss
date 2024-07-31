@@ -18,8 +18,9 @@
             gap: 5px;
         }
         #menu-items{
-            display: flex;
+            display: grid;
             flex-direction: column;
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
             .menu-item{
                     border: 3px solid $border-color;
@@ -27,7 +28,10 @@
                     padding: 10px;
                     color: $text-color;
                     font-family: "Montserrat", sans-serif;
-
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 5px;
                 
             }
         }
