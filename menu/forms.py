@@ -6,10 +6,10 @@ class MenuItemForm(forms.ModelForm):
         model = MenuItem
         fields = ['name', 'description', 'price', 'category', 'image']
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'inp-control-1', 'placeholder': 'Name'}),
-            'description': forms.TextInput(attrs={'class': 'inp-control-2', 'placeholder': 'Description'}),
-            'price': forms.NumberInput(attrs={'class': 'inp-control-3', 'placeholder': 'Price'}),
-            'category': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Category'}),
+            'name': forms.TextInput(attrs={'class': 'inp-control-1', 'placeholder': 'Ismingiz'}),
+            'description': forms.TextInput(attrs={'class': 'inp-control-2', 'placeholder': 'Malumot'}),
+            'price': forms.NumberInput(attrs={'class': 'inp-control-3', 'placeholder': 'Narxi'}),
+            'category': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Kategoriyalar'}),
             'image': forms.ClearableFileInput(attrs={'class': 'form-control-file'})
         }
         
@@ -20,12 +20,12 @@ class ReservationForm(forms.ModelForm):
         model = Reservation
         fields = ['name', 'email', 'phone_number', 'number_of_guests', 'reservation_date', 'reservation_time']
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control' , 'placeholder': 'Email'}),
-            'phone_number': forms.TextInput(attrs={'class': 'form-control-1' , 'placeholder': 'Phone number'}),
-            'number_of_guests': forms.NumberInput(attrs={'class': 'form-control-2', 'placeholder':'Guests'}),
-            'reservation_date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control-2', 'placeholder': 'Date'}),
-            'reservation_time': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control-2', 'placeholder':'Time   '}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ismingiz'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control' , 'placeholder': 'Emailingiz'}),
+            'phone_number': forms.TextInput(attrs={'class': 'form-control-1' , 'placeholder': 'Telefon Raqamingiz'}),
+            'number_of_guests': forms.NumberInput(attrs={'class': 'form-control-2', 'placeholder':'Mexmonlar Soni'}),
+            'reservation_date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control-2', 'placeholder': 'Sana'}),
+            'reservation_time': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control-2', 'placeholder':'Vaqt   '}),
             'special_requests': forms.Textarea(attrs={'class': 'form-control'}),
         }
 
