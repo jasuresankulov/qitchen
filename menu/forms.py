@@ -4,12 +4,13 @@ from .models import MenuItem, Reservation, Order
 class MenuItemForm(forms.ModelForm):
     class Meta:
         model = MenuItem
-        fields = ['name', 'description', 'price','category']
+        fields = ['name', 'description', 'price', 'category', 'image']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'inp-control-1', 'placeholder': 'Name'}),
-            'description': forms.TextInput(attrs={'class': 'inp-control-2' , 'placeholder': 'Description'}),
-            'price': forms.NumberInput(attrs={'class': 'inp-control-3' , 'placeholder': 'Price'}),
-            'category': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Category'})
+            'description': forms.TextInput(attrs={'class': 'inp-control-2', 'placeholder': 'Description'}),
+            'price': forms.NumberInput(attrs={'class': 'inp-control-3', 'placeholder': 'Price'}),
+            'category': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Category'}),
+            'image': forms.ClearableFileInput(attrs={'class': 'form-control-file'})
         }
         
         

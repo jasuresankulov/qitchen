@@ -10,7 +10,7 @@
 
     <div class="right-5">
                 <h1>{% if form.instance.pk %}Edit{% else %}New{% endif %} Menu Item</h1>
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form }}
                     <button class="white-btn" type="submit">Save</button>

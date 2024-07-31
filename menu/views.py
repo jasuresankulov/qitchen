@@ -26,13 +26,13 @@ def menu_detail(request, pk):
 @login_required
 def menu_create(request):
     if request.user.username != 'admin':
-        return redirect('homepage')  # редирект на главную страницу если не admin
+        return redirect('homepage')
 
     if request.method == "POST":
-        form = MenuItemForm(request.POST)
+        form = MenuItemForm(request.POST, request.FILES)
         if form.is_valid():
             item = form.save()
-            return redirect('menu_detail', pk=item.pk)
+            return redirect('menu_item')
     else:
         form = MenuItemForm()
         

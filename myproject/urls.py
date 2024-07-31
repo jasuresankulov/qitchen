@@ -2,7 +2,8 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 from menu.api_views import MenuItemViewSet, ReservationView, ReservationViewSet
-
+from django.conf import settings
+from django.conf.urls.static import static
 # from reservations.api_views import ReservationView
 from rest_framework.routers import DefaultRouter
 
@@ -16,6 +17,7 @@ router.register(r'menuitems', MenuItemViewSet, basename='menuitem')
 router.register(r'reservations', ReservationViewSet, basename='reservation')
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
@@ -23,11 +25,13 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('homepage/', views.homepage, name='homepage'),
     path('about/', views.about),
-    path('menu_item/', views.menu_item),
+    path('menu_item/', views.menu_item, name='menu_item'),
     path('accounts/', include('allauth.urls')),
     
     path('api/reservations/', ReservationView.as_view(), name='reservation-list'),
     path('api/reservations/<int:pk>/', ReservationView.as_view(), name='reservation-detail'),
+    
+ path('api/', include('menu.urls')),
     
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
@@ -37,7 +41,7 @@ urlpatterns = [
     # Include router URLs
     path('apis/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # from django.contrib import admin
 # from django.urls import path, include
 # from . import views

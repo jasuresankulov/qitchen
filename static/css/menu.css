@@ -78,12 +78,13 @@ button {
 .menu-main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 100vh;
+  height: 88vh;
   gap: 0;
 }
 .menu-main .right {
   overflow: scroll;
   overflow-x: hidden;
+  height: 100%;
   padding: 0 5vh;
 }
 .menu-main .right .buttons {
