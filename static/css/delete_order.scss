@@ -1,0 +1,23 @@
+@import './settings';
+
+
+.order-delete-wrapper{
+    width: 100%;
+    height: 88vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .order-delete-container{
+        padding: 20px;
+        background-color: #000;
+        border-radius: 10px;
+        border: 2px solid $input-text-color;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .border-btn{
+            width: 150px;
+            text-align: center;
+        }
+    }
+}  
