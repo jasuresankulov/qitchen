@@ -19,32 +19,32 @@ My Orders
 <div class="my-order-wrapper">
     <div class="my-order-content">
         <div class="my-order">
-            <h1>My Orders</h1>
+            <h1>Mening Buyurtmalarim</h1>
             
             <ul>
                 {% for order in orders %}
                     <li>
-                        <span><b>Name: </b>{{ order.customer_name }}<br/> </span>
-                        <span><b>Product name: </b>{{ order.product_name }}<br/></span>
-                        <span><b>Quantity: </b>{{ order.quantity }}<br/></span>
-                        <span><b>Price: </b>{{ order.price }}<br/></span>
-                        <span><b>Author: </b>{{ order.author_of_order }}<br/></span>
+                        <span><b>Ismi: </b>{{ order.customer_name }}<br/> </span>
+                        <span><b>Maxsulot Nomi: </b>{{ order.product_name }}<br/></span>
+                        <span><b>Miqdori: </b>{{ order.quantity }}<br/></span>
+                        <span><b>Narxi: </b>{{ order.price }}<br/></span>
+                        <span><b>Muallif: </b>{{ order.author_of_order }}<br/></span>
                         
                         
                         
                         
                         <div class="btns">
-                            <a class="white-btn" href="{% url 'order-edit-view' order.pk %}">Edit</a>
-                            <a class="border-btn" href="{% url 'order-delete-view' order.pk %}">Delete</a>
+                            <a class="white-btn" href="{% url 'order-edit-view' order.pk %}">O'zgaritirish</a>
+                            <a class="border-btn" href="{% url 'order-delete-view' order.pk %}">O'chirib tashlash</a>
                         </div>
                     </li>
                 {% empty %}
-                    <li>No orders available.</li>
+                    <li>Buyurmalar Berilmagan.</li>
                 {% endfor %}
             </ul>
             <div class="back">
 
-                <a class="border-btn back-btn"  href="{% url 'profile' %}">Back to Creating orders</a>
+                <a class="border-btn back-btn"  href="{% url 'profile' %}">Buyurtmalar Ro'yxatiga o'tish</a>
             </div>
         </div>
     </div>

@@ -2,19 +2,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Confirm Delete</title>
+    <title>Oʻchirishni tasdiqlang</title>
 </head>
 <body>
-    <h1>Confirm Delete</h1>
-    <p>Are you sure you want to delete the following order?</p>
-    <p>Customer Name: {{ order.customer_name }}</p>
-    <p>Product Name: {{ order.product_name }}</p>
-    <p>Quantity: {{ order.quantity }}</p>
-    <p>Price: {{ order.price }}</p>
+    <h1>Oʻchirishni tasdiqlang</h1>
+    <p>Haqiqatan ham quyidagi tartibni oʻchirib tashlamoqchimisiz?</p>
+    <p>Mijoz nomi: {{ order.customer_name }}</p>
+    <p>Mahsulot nomi: {{ order.product_name }}</p>
+    <p>Miqdori: {{ order.quantity }}</p>
+    <p>Narxi: {{ order.price }}</p>
     <form method="post">
         {% csrf_token %}
-        <button type="submit">Confirm Delete</button>
+        <button type="submit">Oʻchirishni tasdiqlang</button>
     </form>
-    <a href="{% url 'order-list-view' %}">Cancel</a>
+    <a href="{% url 'myorders' %}">Bekor qilish</a>
 </body>
 </html>

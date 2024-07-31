@@ -43,9 +43,9 @@ class OrderForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['customer_name'].widget.attrs.update({'placeholder': 'Customer name'})
-        self.fields['product_name'].widget.attrs.update({'placeholder': 'Product name'})
-        self.fields['quantity'].widget.attrs.update({'placeholder': 'Quantity'})
-        self.fields['price'].widget.attrs.update({'placeholder': 'Price'})
+        self.fields['customer_name'].widget.attrs.update({'placeholder': 'Mijoz nomi'})
+        self.fields['product_name'].widget.attrs.update({'placeholder': 'Mahsulot nomi'})
+        self.fields['quantity'].widget.attrs.update({'placeholder': 'Miqdori'})
+        self.fields['price'].widget.attrs.update({'placeholder': 'Narxi'})
 
 

@@ -24,12 +24,12 @@
 {% for order in orders %}
 <li>
     {{ order.customer_name }} - {{ order.product_name }} - {{ order.quantity }} - {{ order.price }} - {{ order.author_of_order }}
-    <a href="{% url 'order-edit-view' order.pk %}">Edit</a>
-    <a href="{% url 'order-delete-view' order.pk %}">Delete</a>
+    <a href="{% url 'order-edit-view' order.pk %}">Tahrirlash</a>
+    <a href="{% url 'order-delete-view' order.pk %}">Oʻchirish</a>
 </li>
 {% empty %}
-<li>No orders available.</li>
-<a href="{% url 'order-create-view' %}">Back to Creating order Page</a>
+<li>Buyurtmalar mavjud emas.</li>
+<a href="{% url 'order-create-view' %}">Buyurtma yaratish sahifasiga qaytish</a>
 
 {% endfor %}
 

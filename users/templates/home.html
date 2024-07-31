@@ -7,37 +7,37 @@
 </head>
 <style>
   .home-wrapper{
-    background-image: url('static/images/table.jpg');
+    background: url("{% static 'images/table.jpg' %}");
   }
 </style>
 <body>
   <div class="home-wrapper">
     <div class="home-content">
       <div class="signin-signup">
-        <h1>Welcome to the <img width="100" src="{% static 'images/anana.png' %}" alt=""> Website!</h1>
+        <h1><img width="100" src="{% static 'images/anana.png' %}" alt="">Saytiga Xush Kelibsiz</h1>
         {% if user.is_authenticated %}
           <p>
-            <span class="hi">Hi, {{ user.username }}!</span> 
-            <button class="border-btn open-btn">Sign Out</button>
+            <span class="hi">Assalomu Aleykum,  {{ user.username }}!</span> 
+            <button class="border-btn open-btn">Tizimdan chiqish</button>
           </p>
           <br>
           <br>
-          <a class="white-btn" href="{% url "homepage" %}">Click here to visit site!</a>
+          <a class="white-btn" href="{% url "homepage" %}">Saytga tashrif buyurish uchun shu yerni bosing!</a>
         {% else %}
           <p>
-            <a class="border-btn" href="{% url 'account_login' %}">Sign In</a>
-            <a class="white-btn" href="{% url 'account_signup' %}">Sign Up</a>
+            <a class="border-btn" href="{% url 'account_login' %}">Tizimga kirish</a>
+            <a class="white-btn" href="{% url 'account_signup' %}">Ro'yxatdan o'tish</a>
           </p>
         {% endif %}
       </div>
     </div>
     <div class="modal-bg">
       <div class="modal">
-        <h1>Вы уверены что хотите выйти из аккаунта?</h1>
+        <h1>Haqiqatan ham hisobingizdan chiqmoqchimisiz?</h1>
 
         <div class="yes-no">
-          <a class="white-btn" href="{% url "account_logout" %}">Да</a>
-          <button class="border-btn close-btn">Нет</button>
+          <a class="white-btn" href="{% url "account_logout" %}">Ha</a>
+          <button class="border-btn close-btn">Yo'q</button>
         </div>
       </div>
     </div>

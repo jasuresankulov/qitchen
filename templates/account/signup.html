@@ -1,6 +1,6 @@
 {% load socialaccount %}
 {% load account %}
-
+{% load static %}
 <!DOCTYPE html>
 {% load static %}
 <html>
@@ -27,8 +27,7 @@
   </body>
   <style>
     .sign-up-wrapper{
-      background: url('/static/images/table.jpg');
-
+      background: url("{% static 'images/table.jpg' %}");
     }
   </style>
 </html>

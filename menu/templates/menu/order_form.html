@@ -10,12 +10,12 @@
 
 </div>
 <div class="right">
-    <h1>{% if edit %}Edit Order{% else %}Create Order{% endif %}</h1>
+    <h1>{% if edit %}Buyurtmani tahrirlash{% else %}Buyurtma yaratish{% endif %}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="white-btn" type="submit">{% if edit %}Update{% else %}Create{% endif %}</button>
-        <a class="border-btn" href="{% url 'myorders' %}">Back to Order List Page</a>
+        <button class="white-btn" type="submit">{% if edit %}Buyurtmani tahrirlash{% else %}Buyurtma yaratish{% endif %}</button>
+        <a class="border-btn" href="{% url 'myorders' %}">Buyurtmalar roʻyxati sahifasiga qaytish</a>
     </form>
 </div>
 </div>
