@@ -96,13 +96,22 @@ button {
   grid-template-columns: 1fr 1fr;
   width: 100%;
   height: 88vh;
+  gap: 10px;
 }
 .main-menu-detail .left-5 {
-  background-image: url("../images/aboutBigImg.png");
+  background-image: url("../images/nishalda.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 10px;
 }
 .main-menu-detail .right-5 {
+  background-image: url("../images/dark.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;

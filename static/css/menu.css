@@ -79,9 +79,16 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 88vh;
-  gap: 0;
+  gap: 10px;
 }
 .menu-main .right {
+  background-image: url("../images/dark.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
   overflow: scroll;
   overflow-x: hidden;
   height: 100%;
