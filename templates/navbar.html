@@ -12,6 +12,7 @@
     <a href="/menu_item">Menyu</a>
     <a href="/about">Biz Haqimizda</a>
     <a href="/menu/make_reservation">STOLNI BRON QILISH</a>
+    
     {% if request.user.username == 'admin' %}
     <a href="{% url "menu_create" %}">Ovqatlar To'plami</a>  
     {% endif %}

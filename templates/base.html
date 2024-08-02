@@ -34,16 +34,16 @@
           <img src="{% static 'images/Grid.png' %}" alt="" />
         </li>
         <li>
-          <a href="#">Menyu</a>
+          <a href="/menu">Menyu</a>
         </li>
         <li>
-          <a href="#">Bron qilish</a>
+          <a href="/menu/make_reservation">Bron qilish</a>
         </li>
         <li>
-          <a href="#">Biz Haqimizda</a>
+          <a href="/about">Biz Haqimizda</a>
         </li>
         <li>
-          <a href="#">Kontaktal</a>
+          <a href="{% url "contacts" %}">Kontaktlar</a>
         </li>
         <li>
           <a href="#">Blog</a>
@@ -52,11 +52,13 @@
           <img src="{% static 'images/Grid.png' %}" alt="" />
         </li>
       </ul>
+      <a id="closeMenu" class="close-menu"><h1>X</h1></a>
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const burgerMenu = document.querySelector('#burgerMenu')
         const menuNav = document.querySelector('.menu-nav')
+        const closeMenu = document.querySelector('#closeMenu');
         function ModalFn() {
           if (menuNav.classList.contains('active')) {
             menuNav.classList.remove('active')
@@ -71,7 +73,7 @@
           }
         }
         burgerMenu.addEventListener('click', ModalFn)
-
+        closeMenu.addEventListener('click', ModalFn); 
         // Toastify for displaying messages
         {% if messages %}
           {% for message in messages %}
@@ -87,4 +89,14 @@
       })
     </script>
   </body>
+  <style>
+
+
+    .close-menu{
+      position: absolute;
+      top: 5%;
+      left: 2%;
+      cursor: pointer;
+    }
+  </style>
 </html>

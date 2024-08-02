@@ -27,7 +27,7 @@ urlpatterns = [
     path('about/', views.about),
     path('menu_item/', views.menu_item, name='menu_item'),
     path('accounts/', include('allauth.urls')),
-    
+    path('contacts/', views.contacts, name='contacts'),
     path('api/reservations/', ReservationView.as_view(), name='reservation-list'),
     path('api/reservations/<int:pk>/', ReservationView.as_view(), name='reservation-detail'),
     

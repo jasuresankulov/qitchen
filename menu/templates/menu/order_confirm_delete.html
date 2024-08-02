@@ -1,7 +1,7 @@
-<<<<<<< HEAD
-<!-- orders/templates/orders/order_confirm_delete.html -->
 <!DOCTYPE html>
-<html>
+{% extends "base.html" %}
+
+{% comment %} <html>
 <head>
     <title>Oʻchirishni tasdiqlang</title>
 </head>
@@ -18,9 +18,8 @@
     </form>
     <a href="{% url 'myorders' %}">Bekor qilish</a>
 </body> 
-</html>
-=======
-{% extends "base.html" %}
+</html> {% endcomment %}
+
 {% load static %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/delete_order.css' %}">
@@ -66,4 +65,4 @@
 </div>
 {% endblock content %}
 
->>>>>>> bc3621a4647b1a7a25dfac1ab3f73d441b957472
+

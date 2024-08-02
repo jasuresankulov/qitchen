@@ -26,4 +26,7 @@ def menu_item(request):
     }
     return render(request, 'menu_item.html', {'context': context})
 
+def contacts(request):
+    return render(request, 'contacts.html')
+
  
