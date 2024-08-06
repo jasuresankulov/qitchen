@@ -123,4 +123,18 @@ button {
   background-size: cover;
   background-position: center;
   border-radius: 10px;
+}
+.contacts-wrapper .right .card.n-4 {
+  border: 1px solid #807d71;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contacts-wrapper .right .card.n-4 .col {
+  display: flex;
+  justify-content: space-between;
+}
+.contacts-wrapper .right .card.n-4 .col p:last-child {
+  text-align: right;
+  text-wrap: pretty;
 }/*# sourceMappingURL=contacts.css.map */

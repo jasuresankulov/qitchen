@@ -47,6 +47,22 @@
                     border-radius: 10px;
                 }
             }
+            &.n-4{
+                border: 1px solid $input-text-color;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .col{
+                    display: flex;
+                    justify-content: space-between;
+                    p{
+                        &:last-child{  
+                            text-align: right;
+                            text-wrap: pretty;
+                        }
+                    }
+                }
+            }
         }
     }
 }
