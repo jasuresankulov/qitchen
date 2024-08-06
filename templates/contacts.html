@@ -2,14 +2,42 @@
 {% load static %}
 
 {% block css %}
-  <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<script type="text/javascript">
+  ymaps.ready(init)
+  function init() {
+    var myMap = new ymaps.Map('map', {
+      center: [39.646631, 66.923375], // Координаты центра карты
+      zoom: 20 // Масштаб карты
+    })
+  }
+</script>
+  <link rel="stylesheet" href="{% static 'css/contacts.css' %}" />
+  <style>
+    .contacts-wrapper .left{
+      background-image: url("{% static 'images/uzbRestaurant.jpg' %}");
+
+    }
+    .contacts-wrapper .right .n-2 .photo-1{
+      background-image: url("{% static 'images/shashlik.jpg' %}");
+    }
+    .contacts-wrapper .right .n-2 .photo-2{
+      background-image: url("{% static 'images/lepeshki.jpg' %}");
+    }
+    .contacts-wrapper .right .n-2 .photo-3{
+      background-image: url("{% static 'images/kazan-kabob-1.jpg' %}");
+    }
+    .contacts-wrapper .right .n-2 .photo-4{
+      background-image: url("{% static 'images/plov4k.jpeg' %}");
+    }
+  </style>
 {% endblock %}
 
 {% block content %}
   <div class="contacts-wrapper">
     <div class="left"></div>
     <div class="right">
-      <div class="card-1">
+      <div class="card n-1">
         <div class="top">
           <h2>Opening <br /> Hours</h2>
         </div>
@@ -64,83 +92,32 @@
           </div>
         </div>
       </div>
-      <div class="card-2">
+      <div class="card n-2">
         <div class="photo-1"></div>
         <div class="photo-2"></div>
         <div class="photo-3"></div>
         <div class="photo-4"></div>
       </div>
-      <div class="card-3">
-        <div id="map" style="width: 600px; height: 400px"></div>
+      <div class="card n-3">
+        <div id="map" style="width: 100%; height: 300px"></div>
       </div>
-      <div class="card-4"></div>
+      <div class="card n-4">
+        <div class="col">
+          <p>Address</p>
+          <p>23 Greenfield Avenue, Prague 120 00</p>
+        </div>
+        <div class="col">
+          <p>Phone</p>
+          <p>+42 1234 567890</p>
+        </div>
+        <div class="col">
+          <p>Email</p>
+          <p>hello@example.com</p>
+        </div>
+      </div>
     </div>
   </div>
-  
-  {% comment %} <script src="https://api-maps.yandex.ru/v3/?apikey=5cabf83c-c83e-4d05-b0ae-e91c2b07dc6e&lang=ru_RU"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      initMap();
-    });
-
-    async function initMap() {
-      // Промис `ymaps3.ready` будет зарезолвлен, когда загрузятся все компоненты основного модуля API
-      await ymaps3.ready;
-
-      const { YMap, YMapDefaultSchemeLayer } = ymaps3;
-
-      // Иницилиазируем карту
-      const map = new YMap(
-        // Передаём ссылку на HTMLElement контейнера
-        document.getElementById('map'),
-
-        // Передаём параметры инициализации карты
-        {
-          location: {
-            // Координаты центра карты
-            center: [37.588144, 55.733842],
-
-            // Уровень масштабирования
-            zoom: 10
-          }
-        }
-      );
-
-      // Добавляем слой для отображения схематической карты
-      map.addChild(new YMapDefaultSchemeLayer());
-    }   
-  </script> {% endcomment %}
-
-
-
-
 
   <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-
-
-  <script>
-    <div id="map" style="width: 600px; height: 400px;"></div>
-  </script>
-
-  <!DOCTYPE html>
-<html>
-<head>
-    <title>Яндекс.Карта</title>
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-    <script type="text/javascript">
-        ymaps.ready(init);
-        function init() {
-            var myMap = new ymaps.Map("map", {
-                center: [39.646373415257074, 66.92374476546827], // Координаты центра карты
-                zoom: 20 // Масштаб карты
-            });
-        }
-    </script>
-</head>
-<body>
-    <div id="map" style="width: 600px; height: 400px;"></div>
-</body>
-</html>
-
 
 {% endblock %}
